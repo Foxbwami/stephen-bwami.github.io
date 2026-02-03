@@ -56,6 +56,41 @@
       top: 0;
     }
 
+    /* Mobile menu button and sidebar */
+    .menu-btn {
+      display: none;
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #020617;
+      color: #e5e7eb;
+      border: 1px solid rgba(229,231,235,0.06);
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 150;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 78%;
+      max-width: 320px;
+      height: 100%;
+      background: #020617;
+      padding: 72px 20px 20px 20px;
+      box-shadow: 4px 0 30px rgba(0,0,0,0.6);
+      z-index: 200;
+      overflow-y: auto;
+    }
+    .mobile-menu.show { display: block; }
+    .mobile-menu a { display: block; padding: 12px 0; color: #e5e7eb; font-weight: 600; }
+    .mobile-menu .close-btn { display:block; margin-bottom: 10px; background: transparent; color: #e5e7eb; border: none; font-size: 20px; text-align: left; }
+
     section {
       max-width: 1100px;
       margin: auto;
@@ -206,20 +241,23 @@
     @media (max-width: 640px) {
       /* Slightly smaller base font on phones to improve hierarchy */
       body { font-size: 15px; }
-      header { padding: 48px 16px; }
+      /* Leave space at top so an absolutely positioned profile pic does not overlap content */
+      header { padding: 72px 16px 20px; position: relative; }
       /* Reduce heading size for small screens */
       header h1 { font-size: 1.6rem; }
       header p { max-width: 100%; padding: 0 10px; }
-      /* Make profile picture part of the normal flow on small screens
-         so it doesn't overlap the header content */
+      /* Position profile picture in the top-right corner on small screens without overlapping */
       .profile-pic {
-        position: static;
-        width: 72px;
-        height: 72px;
-        margin: 0 auto 12px;
-        display: block;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 64px;
+        height: 64px;
         border-radius: 50%;
       }
+      /* Show mobile menu button, hide desktop nav */
+      .menu-btn { display: block; }
+      nav { display: none; }
       section { padding: 40px 12px; }
       .placeholder { height: 120px; }
       .card { padding: 18px; }
@@ -237,15 +275,16 @@
 <body>
 
 <header>
+  <button id="menuBtn" class="menu-btn" aria-label="Open menu">☰</button>
   <img src="images/profile.jpg" alt="Stephen Bwami - Profile Picture" class="profile-pic">
   <h1>Stephen Bwami</h1>
   <p>Software Developer • Data Analyst • CSV Cleaning Specialist</p>
   <a class="btn" href="#contact">Hire Me</a>
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true"></div>
 </header>
 
 <nav>
   <a href="index.html">Home</a>
-  <a href="#about">About</a>
   <a href="portfolio.html">Portfolio</a>
   <a href="data-analytics.html">Analytics</a>
   <a href="freelance.html">Freelance</a>
@@ -352,7 +391,7 @@
 </section>
 
 <footer>
-  <p>© 2026 Stephen Bwami — Built with pure HTML &amp; CSS</p>
+  <p>© 2026 Stephen Bwami</p>
 </footer>
 
 <!-- WhatsApp Floating Button -->
@@ -401,3 +440,40 @@
 
 </body>
 </html>
+<script>
+  // Mobile menu toggling: clone nav markup into mobile menu on first open
+  (function() {
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const nav = document.querySelector('nav');
+
+    function buildMobileMenu() {
+      if (!mobileMenu.innerHTML.trim()) {
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'close-btn';
+        closeBtn.textContent = '✕ Close';
+        closeBtn.addEventListener('click', () => mobileMenu.classList.remove('show'));
+        mobileMenu.appendChild(closeBtn);
+
+        // clone nav links
+        const clone = nav.cloneNode(true);
+        // remove sticky behavior inside mobile menu
+        clone.style.position = 'static';
+        mobileMenu.appendChild(clone);
+      }
+    }
+
+    menuBtn.addEventListener('click', () => {
+      buildMobileMenu();
+      mobileMenu.classList.toggle('show');
+      mobileMenu.setAttribute('aria-hidden', !mobileMenu.classList.contains('show'));
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.contains(e.target) && e.target !== menuBtn && mobileMenu.classList.contains('show')) {
+        mobileMenu.classList.remove('show');
+      }
+    });
+  })();
+</script>
