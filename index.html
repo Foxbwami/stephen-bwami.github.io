@@ -52,8 +52,12 @@
       gap: 30px;
       padding: 20px;
       background: #020617;
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      width: 100%;
     }
 
     /* Mobile menu button and sidebar */
@@ -263,9 +267,9 @@
     nav { flex-wrap: wrap; }
     @media (max-width: 640px) {
       /* Slightly smaller base font on phones to improve hierarchy */
-      body { font-size: 15px; }
+      body { font-size: 15px; padding-top: 60px; }
       /* Leave space at top so an absolutely positioned profile pic does not overlap content */
-      header { padding: 72px 16px 20px; position: relative; }
+      header { padding: 72px 16px 20px; position: relative; margin-top: 0; }
       /* Reduce heading size for small screens */
       header h1 { font-size: 1.6rem; }
       header p { max-width: 100%; padding: 0 10px; }
@@ -280,12 +284,14 @@
       }
       /* Show mobile menu button, hide desktop nav */
       .menu-btn { display: block; }
-      nav { display: none; }
+      nav { display: none !important; }
       section { padding: 40px 12px; }
       .placeholder { height: 120px; }
       .card { padding: 18px; }
       h2 { font-size: 1.4rem; }
       .gallery { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-item { width: 100%; }
       .whatsapp-btn { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 24px; }
       .modal-content { max-width: 90%; padding: 20px; }
     }
@@ -511,10 +517,16 @@
         mobileMenu.appendChild(closeBtn);
 
         // clone nav links
-        const clone = nav.cloneNode(true);
-        // remove sticky behavior inside mobile menu
-        clone.style.position = 'static';
-        mobileMenu.appendChild(clone);
+        if (nav) {
+          const clone = nav.cloneNode(true);
+          clone.style.position = 'static';
+          clone.style.display = 'flex';
+          clone.style.flexDirection = 'column';
+          clone.style.gap = '0';
+          clone.style.padding = '0';
+          clone.style.background = 'none';
+          mobileMenu.appendChild(clone);
+        }
       }
     }
 
