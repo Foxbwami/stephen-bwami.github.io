@@ -18,23 +18,24 @@
     }
     a { color: #38bdf8; text-decoration: none; }
     img { max-width: 100%; display: block; }
+    
+    body {
+      padding-top: 120px;
+    }
 
     header {
-      padding: 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #020617, #020617);
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: auto;
-      position: relative;
-    }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px;
+  background: linear-gradient(135deg, #020617, #020617);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
     .profile-pic {
       position: absolute;
       top: 15px;
@@ -288,6 +289,13 @@
 
     /* Responsive adjustments */
     @media (max-width: 640px) {
+  header {
+  position: static;
+}
+
+body {
+  padding-top: 0;
+}
 
   /* Remove vertical push from header */
   header {

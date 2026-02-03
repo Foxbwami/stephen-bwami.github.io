@@ -16,17 +16,21 @@
     .skip { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
     .skip:focus { position: static; width: auto; height: auto; left: 0; padding: 10px; background: #020617; color: #e5e7eb; }
 header {
-  padding: 20px;
-  text-align: center;
-  background: linear-gradient(135deg,#020617,#020617);
-  position: relative;
-  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
+  padding: 20px;
+  background: linear-gradient(135deg, #020617, #020617);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: auto;
 }
+ body {
+  padding-top: 120px;
+}
+
     header h1 { font-size: 1.8rem; margin: 0; line-height: 1.2; }
     header p { color: #94a3b8; margin: 0; }
     .profile-pic { position: absolute; top: 15px; right: 15px; width: 80px; height: 80px; border-radius: 50%; border: 4px solid #38bdf8; object-fit: cover; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3); flex-shrink: 0; }
@@ -92,6 +96,13 @@ header {
     footer { text-align:center; padding:28px; background:#020617; color:#64748b; }
 
     @media (max-width: 640px) {
+    header {
+  position: static;
+}
+
+body {
+  padding-top: 0;
+}
 
   /* Remove vertical push from header */
   header {
