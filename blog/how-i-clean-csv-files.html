@@ -6,33 +6,61 @@
   <meta name="description" content="A practical walkthrough of how I clean CSV files before data analysis.">
   <meta name="author" content="Stephen Bwami">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #0f172a; color: #e5e7eb; line-height: 1.6; }
+    a { color: #38bdf8; text-decoration: none; }
+    a:focus-visible { outline: 3px solid #60a5fa; outline-offset: 3px; }
+    header { padding: 40px 20px; text-align: center; background: linear-gradient(135deg, #020617, #020617); }
+    header h1 { font-size: 2rem; margin-bottom: 8px; }
+    header p { color: #94a3b8; }
+    nav { display: flex; justify-content: center; gap: 20px; padding: 16px; background: #020617; position: sticky; top: 0; z-index: 20; flex-wrap: wrap; }
+    nav a { color: #e5e7eb; font-weight: 600; }
+    article { max-width: 900px; margin: auto; padding: 40px 20px; }
+    h2 { margin-top: 24px; margin-bottom: 12px; }
+    .date { color: #94a3b8; font-size: 0.9em; }
+    footer { text-align: center; padding: 28px; background: #020617; color: #64748b; }
+    @media (max-width: 640px) { header { padding: 28px 12px; } header h1 { font-size: 1.6rem; } article { padding: 24px 12px; } }
+  </style>
 </head>
 <body>
-<h1>How I Clean CSV Files for Data Analysis</h1>
-<p><em>March 2026</em></p>
 
-<p>
-Before any analysis begins, I focus on cleaning the dataset. CSV files often
-contain missing values, duplicates, and inconsistent formats.
-</p>
+<header>
+  <h1>How I Clean CSV Files for Data Analysis</h1>
+  <p class="date">March 2026</p>
+</header>
 
-<p>
-My first step is to inspect column names and data types. Clear and consistent
-naming makes the dataset easier to understand and maintain.
-</p>
+<nav role="navigation" aria-label="Main navigation">
+  <a href="../index.html">Home</a>
+  <a href="../blog.html">← Back to Blog</a>
+</nav>
 
-<p>
-Next, I handle missing values by either filling them with defaults or removing
-rows when necessary. The decision depends on the dataset’s purpose.
-</p>
+<article>
+  <p>
+    Before any analysis begins, I focus on cleaning the dataset. CSV files often contain missing values, duplicates, and inconsistent formats.
+  </p>
 
-<p>
-Finally, I remove duplicates and standardize formats such as dates and numbers.
-Clean data ensures reliable analysis and trustworthy results.
-</p>
+  <p>
+    My first step is to inspect column names and data types. Clear and consistent naming makes the dataset easier to understand and maintain.
+  </p>
 
-<p>
-CSV cleaning is not optional. It is the foundation of good data work.
-</p>
+  <p>
+    Next, I handle missing values by either filling them with defaults or removing rows when necessary. The decision depends on the dataset's purpose.
+  </p>
+
+  <p>
+    Finally, I remove duplicates and standardize formats such as dates and numbers. Clean data ensures reliable analysis and trustworthy results.
+  </p>
+
+  <p>
+    CSV cleaning is not optional. It is the foundation of good data work.
+  </p>
+</article>
+
+<footer>
+  <p>© 2026 Stephen Bwami — Built with pure HTML &amp; CSS</p>
+</footer>
+
 </body>
 </html>

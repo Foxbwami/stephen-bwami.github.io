@@ -1,89 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO Meta -->
-  <title>Stephen Bwami | Personal Blog & Portfolio</title>
-  <meta name="description" content="Stephen Bwami – BBIT student, programmer, data analyst, and system developer. I specialize in data analysis, CSV cleaning, C programming, web development, and building practical software solutions.">
-  <meta name="keywords" content="Stephen Bwami, data analyst, CSV cleaning, data analysis, BBIT student, programmer, C programming, web development, portfolio, personal blog">
-  <meta name="author" content="Stephen Bwami">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stephen Bwami | Developer & Data Analyst</title>
   <meta name="google-site-verification" content="google2320fd583766d850.html">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #0f172a;
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
       color: #e5e7eb;
       line-height: 1.6;
     }
+    a { color: #38bdf8; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
     header {
-      background: #020617;
-      padding: 30px;
+      padding: 80px 20px;
       text-align: center;
+      background: linear-gradient(135deg, #020617, #020617);
+      position: relative;
+    }
+    .profile-pic {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 4px solid #38bdf8;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
     }
     header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+      font-size: 3rem;
+      margin-bottom: 10px;
     }
     header p {
+      max-width: 600px;
+      margin: 0 auto;
       color: #94a3b8;
     }
+
     nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
       background: #020617;
-      text-align: center;
-      padding: 10px;
+      position: sticky;
+      top: 0;
     }
-    nav a {
-      color: #e5e7eb;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #38bdf8;
-    }
+
     section {
-      padding: 40px;
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
+      padding: 80px 20px;
     }
+
     h2 {
-      border-bottom: 2px solid #38bdf8;
-      padding-bottom: 5px;
-      margin-bottom: 20px;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      border-left: 4px solid #38bdf8;
+      padding-left: 15px;
     }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
     .card {
       background: #020617;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.3);
+      transition: transform .3s;
     }
+    .card:hover { transform: translateY(-5px); }
+
+    .placeholder {
+      height: 160px;
+      background: linear-gradient(135deg, #1e293b, #020617);
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
     footer {
-      background: #020617;
       text-align: center;
-      padding: 20px;
-      color: #94a3b8;
+      padding: 40px;
+      background: #020617;
+      color: #64748b;
     }
-    a.link {
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 28px;
+      border-radius: 999px;
+      background: #38bdf8;
+      color: #020617;
+      font-weight: 600;
+    }
+
+    /* Image Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      z-index: 100;
+      font-size: 30px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 200;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal.show { display: flex; }
+    .modal-content {
+      background-color: #020617;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+    .modal-content h3 {
       color: #38bdf8;
-      text-decoration: none;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+    .modal-content p {
+      color: #e5e7eb;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    .modal-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+    .modal-buttons button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .btn-confirm {
+      background: #25d366;
+      color: white;
+    }
+    .btn-confirm:hover { background: #1e9a3f; }
+    .btn-cancel {
+      background: #64748b;
+      color: white;
+    }
+    .btn-cancel:hover { background: #475569; }
+
+    /* Responsive adjustments */
+    nav { flex-wrap: wrap; }
+    @media (max-width: 640px) {
+      header { padding: 48px 16px; }
+      header h1 { font-size: 2rem; }
+      header p { max-width: 100%; padding: 0 10px; }
+      .profile-pic { width: 80px; height: 80px; top: 10px; right: 10px; }
+      section { padding: 40px 12px; }
+      .placeholder { height: 120px; }
+      .card { padding: 18px; }
+      h2 { font-size: 1.4rem; }
+      .gallery { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+      .whatsapp-btn { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 24px; }
+      .modal-content { max-width: 90%; padding: 20px; }
+    }
+    @media (min-width: 641px) and (max-width: 1024px) {
+      header h1 { font-size: 2.4rem; }
+      .placeholder { height: 140px; }
     }
   </style>
 </head>
-
 <body>
 
 <header>
+  <img src="images/profile.jpg" alt="Stephen Bwami - Profile Picture" class="profile-pic">
   <h1>Stephen Bwami</h1>
-  <p>BBIT Student | Programmer | Data Analyst | System Developer</p>
+  <p>Software Developer • Data Analyst • CSV Cleaning Specialist</p>
+  <a class="btn" href="#contact">Hire Me</a>
 </header>
 
 <nav>
   <a href="index.html">Home</a>
-  <a href="data-analytics.html">Data Analytics</a>
+  <a href="#about">About</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="data-analytics.html">Analytics</a>
   <a href="freelance.html">Freelance</a>
   <a href="blog.html">Blog</a>
   <a href="#contact">Contact</a>
@@ -91,96 +243,150 @@
 
 <section id="about">
   <h2>About Me</h2>
-  <div class="card">
-    <p>
-  Hello, I’m <strong>Stephen Bwami</strong>, a BBIT student with a strong interest
-  in programming, data analysis, and system development. I work with data to
-  clean, analyze, and extract insights, while also building software and web
-  applications that solve real-world problems. I value clarity, structure,
-  and continuous growth in both technical and personal development.
-</p>
+  <p>I am a passionate developer and data analyst focused on clean code, clean data, and real-world problem solving. I help individuals and small businesses turn raw data into insights.</p>
+  
+  <h3 style="font-size: 1.3rem; margin-top: 30px; color: #94a3b8;">My Activities & Projects</h3>
+  <div class="gallery">
+    <img src="images/activity-1.jpg" alt="Activity 1">
+    <img src="images/activity-2.jpg" alt="Activity 2">
+    <img src="images/activity-3.jpg" alt="Activity 3">
+    <img src="images/activity-4.jpg" alt="Activity 4">
+    <img src="images/activity-5.jpg" alt="Activity 5">
+    <img src="images/activity-6.jpg" alt="Activity 6">
   </div>
 </section>
 
+<!-- Skills section copied from coppy.html (kept content intact, aligned with index styles) -->
 <section id="skills">
   <h2>My Capabilities</h2>
-  <div class="card">
-    <ul>
-  <li>Data Analysis & Interpretation</li>
-  <li>CSV Data Cleaning & Preparation</li>
-  <li>Python for Data Analysis</li>
-  <li>C Programming</li>
-  <li>Web Development (HTML, CSS, Flask)</li>
-  <li>Database Systems (MS Access, SQL basics)</li>
-  <li>System Analysis & Design</li>
-  <li>Accounting & Business Computing</li>
-  <li>Problem Solving & Logical Thinking</li>
-</ul>
+  <div class="grid">
+    <div class="card">
+      <ul>
+        <li>Data Analysis &amp; Interpretation</li>
+        <li>CSV Data Cleaning &amp; Preparation</li>
+        <li>Python for Data Analysis</li>
+        <li>C Programming</li>
+        <li>Web Development (HTML, CSS, Flask)</li>
+        <li>Database Systems (MS Access, SQL basics)</li>
+        <li>System Analysis &amp; Design</li>
+        <li>Accounting &amp; Business Computing</li>
+        <li>Problem Solving &amp; Logical Thinking</li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<section id="projects">
+<section id="portfolio">
   <h2>Projects</h2>
-<div class="card">
-  <h3>Data Analysis & CSV Cleaning Projects</h3>
-  <p>
-    Worked on cleaning, organizing, and analyzing CSV datasets to extract
-    meaningful insights. Tasks included data validation, handling missing
-    values, restructuring datasets, and preparing clean data for analysis
-    and reporting.
-  </p>
-</div>
+  <div class="grid">
+    <div class="card">
+      <h3>Data Analysis &amp; CSV Cleaning Projects</h3>
+      <p>Worked on cleaning, organizing, and analyzing CSV datasets to extract meaningful insights. Tasks included data validation, handling missing values, restructuring datasets, and preparing clean data for analysis and reporting.</p>
+    </div>
 
-  <div class="card">
-    <h3>Victory Club Membership System</h3>
-    <p>
-      A database-driven system built using Microsoft Access to manage school
-      clubs, members, finances, and activities.
-    </p>
+    <div class="card">
+      <h3>Victory Club Membership System</h3>
+      <p>A database-driven system built using Microsoft Access to manage school clubs, members, finances, and activities.</p>
+    </div>
+
+    <div class="card">
+      <h3>Pygame Car Game</h3>
+      <p>A Python-based game featuring moving obstacles, scoring, and game logic. Focused on improving gameplay experience and structure.</p>
+    </div>
+
+    <div class="card">
+      <h3>Flask Web Application</h3>
+      <p>A web dashboard application developed using Flask, implementing backend logic, routing, and modular design.</p>
+    </div>
   </div>
+</section>
 
-  <div class="card">
-    <h3>Pygame Car Game</h3>
-    <p>
-      A Python-based game featuring moving obstacles, scoring, and game logic.
-      Focused on improving gameplay experience and structure.
-    </p>
+<section id="analytics">
+  <h2>Data Analytics</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="placeholder"></div>
+      <h3>Before & After Cleaning</h3>
+      <p>Demonstration of real datasets transformed into analysis-ready formats.</p>
+    </div>
+    <div class="card">
+      <div class="placeholder"></div>
+      <h3>Insights & Charts</h3>
+      <p>Static HTML charts explaining trends and patterns.</p>
+    </div>
   </div>
-
-  <div class="card">
-    <h3>Flask Web Application</h3>
-    <p>
-      A web dashboard application developed using Flask, implementing backend
-      logic, routing, and modular design.
-    </p>
-  </div>
-
 </section>
 
 <section id="blog">
-  <h2>Blog</h2>
-  <div class="card">
-    <p>
-      This section will host my thoughts on programming, technology,
-      personal growth, and lessons learned from building real projects.
-    </p>
-    <p><em>Blog posts coming soon…</em></p>
+  <h2>Latest Blog Posts</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Why Data Cleaning Matters</h3>
+      <p>Understanding the foundation of reliable analytics.</p>
+    </div>
+    <div class="card">
+      <h3>CSV Cleaning Basics</h3>
+      <p>A beginner-friendly guide to structured data.</p>
+    </div>
   </div>
 </section>
 
 <section id="contact">
-  <h2>Connect With Me</h2>
-  <div class="card">
-    <p>Email: <a class="link" href="mailto:bwamistevenez001@gmail.com">bwamistevenez001@gmail.com</a></p>
-    <p>GitHub: <a class="link" href="https://github.com/Foxbwami" target="_blank">github.com/Foxbwami</a></p>
-    <p>LinkedIn: <a class="link" href="https://linkedin.com/in/stephen-bwami-722548253" target="_blank">linkedin.com/in/stephen-bwami-722548253</a></p>
-    <p>Twitter/X: <a class="link" href="https://x.com/Stevene12890" target="_blank">@Stevene12890</a></p>
-  </div>
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:bwamistevenez001@gmail.com">bwamistevenez001@gmail.com</a></p>
+  <p>GitHub: <a href="https://github.com/Foxbwami">Foxbwami</a></p>
+  <p>LinkedIn: <a class="link" href="https://linkedin.com/in/stephen-bwami-722548253" target="_blank">linkedin.com/in/stephen-bwami-722548253</a></p>
+  <p>Twitter/X: <a class="link" href="https://x.com/Stevene12890" target="_blank">@Stevene12890</a></p>
 </section>
 
 <footer>
-  <p>© 2026 Stephen Bwami. All rights reserved.</p>
+  <p>© 2026 Stephen Bwami — Built with pure HTML &amp; CSS</p>
 </footer>
+
+<!-- WhatsApp Floating Button -->
+<div class="whatsapp-btn" id="whatsappBtn" title="Chat with us on WhatsApp">💬</div>
+
+<!-- WhatsApp Modal -->
+<div class="modal" id="whatsappModal">
+  <div class="modal-content">
+    <h3>Welcome! 👋</h3>
+    <p><strong>You've reached Stephen Bwami</strong></p>
+    <p>How can I help you today?</p>
+    <div class="modal-buttons">
+      <button class="btn-confirm" id="confirmBtn">Yes, Let's Chat</button>
+      <button class="btn-cancel" id="cancelBtn">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const whatsappBtn = document.getElementById('whatsappBtn');
+  const whatsappModal = document.getElementById('whatsappModal');
+  const confirmBtn = document.getElementById('confirmBtn');
+  const cancelBtn = document.getElementById('cancelBtn');
+  const whatsappNumber = '0721894141';
+  
+  whatsappBtn.addEventListener('click', () => {
+    whatsappModal.classList.add('show');
+  });
+  
+  confirmBtn.addEventListener('click', () => {
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hi%20Stephen,%20I%20would%20like%20to%20connect%20with%20you.`;
+    window.open(whatsappUrl, '_blank');
+    whatsappModal.classList.remove('show');
+  });
+  
+  cancelBtn.addEventListener('click', () => {
+    whatsappModal.classList.remove('show');
+  });
+  
+  // Close modal when clicking outside
+  whatsappModal.addEventListener('click', (e) => {
+    if (e.target === whatsappModal) {
+      whatsappModal.classList.remove('show');
+    }
+  });
+</script>
 
 </body>
 </html>

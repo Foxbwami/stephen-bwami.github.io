@@ -5,53 +5,50 @@
   <title>Freelance Services | Stephen Bwami</title>
   <meta name="description" content="Freelance data analysis, CSV cleaning, and technical services by Stephen Bwami.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      margin: 0;
-    }
-    header, nav, footer {
-      background: #020617;
-      padding: 20px;
-      text-align: center;
-    }
-    nav a {
-      color: #e5e7eb;
-      margin: 0 12px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px;
-    }
-    .card {
-      background: #020617;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 25px;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #0f172a; color: #e5e7eb; line-height: 1.6; }
+    a { color: #38bdf8; }
+    a:focus-visible { outline: 3px solid #60a5fa; outline-offset: 3px; }
+    .skip { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip:focus { position: static; width: auto; height: auto; left: 0; padding: 10px; background: #020617; color: #e5e7eb; }
+
+    header { padding: 48px 20px; text-align: center; background: linear-gradient(135deg,#020617,#020617); }
+    header h1 { font-size: 2.4rem; margin-bottom: 8px; }
+    header p { color: #94a3b8; }
+    nav { display:flex; justify-content:center; gap:20px; padding:16px; background:#020617; position:sticky; top:0; z-index:20; flex-wrap:wrap; }
+    nav a { color:#e5e7eb; font-weight:600; }
+    section { max-width:1100px; margin:auto; padding:40px 20px; }
+    .card { background:#020617; padding:20px; border-radius:12px; margin-bottom:25px; }
+    .btn { display:inline-block; margin-top:12px; padding:10px 20px; border-radius:999px; background:#38bdf8; color:#020617; font-weight:600; text-decoration:none; }
+
+    footer { text-align:center; padding:28px; background:#020617; color:#64748b; }
+
+    @media (max-width:640px) { header { padding:36px 12px; } header h1 { font-size:1.8rem; } section { padding:28px 12px; } }
   </style>
 </head>
 
 <body>
+
+<a class="skip" href="#main">Skip to content</a>
 
 <header>
   <h1>Freelance Services</h1>
   <p>Data • Systems • Analysis</p>
 </header>
 
-<nav>
+<nav role="navigation" aria-label="Main navigation">
   <a href="index.html">Home</a>
-  <a href="data-analytics.html">Data Analytics</a>
-  <a href="#contact">Contact</a>
+  <a href="index.html#about">About</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="data-analytics.html">Analytics</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#contact">Contact</a>
 </nav>
 
-<section>
+<section id="main">
   <div class="card">
     <h2>Services I Offer</h2>
     <ul>

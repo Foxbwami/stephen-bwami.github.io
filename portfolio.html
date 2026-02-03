@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio | Stephen Bwami</title>
+  <meta name="description" content="Detailed portfolio of Stephen Bwami's projects in data analysis, web development, and software solutions.">
+  <meta name="author" content="Stephen Bwami">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #0f172a; color: #e5e7eb; line-height: 1.6; }
+    a { color: #38bdf8; text-decoration: none; }
+    a:focus-visible { outline: 3px solid #60a5fa; outline-offset: 3px; }
+    .skip { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip:focus { position: static; width: auto; height: auto; left: 0; padding: 10px; background: #020617; color: #e5e7eb; }
+
+    header { padding: 48px 20px; text-align: center; background: linear-gradient(135deg, #020617, #020617); }
+    header h1 { font-size: 2.4rem; margin-bottom: 8px; }
+    header p { color: #94a3b8; }
+
+    nav { display:flex; justify-content:center; gap:20px; padding:16px; background:#020617; position:sticky; top:0; z-index:20; flex-wrap:wrap; }
+    nav a { color:#e5e7eb; font-weight:600; }
+
+    section { max-width:1100px; margin:auto; padding:40px 20px; }
+    h2 { font-size: 1.8rem; margin-bottom: 30px; border-left: 4px solid #38bdf8; padding-left: 15px; }
+    h3 { font-size: 1.3rem; margin-top: 20px; margin-bottom: 10px; color: #60a5fa; }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .project-card {
+      background: #020617;
+      padding: 30px;
+      border-radius: 12px;
+      border-left: 4px solid #38bdf8;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(56, 189, 248, 0.2); }
+
+    .project-card h3 { color: #38bdf8; margin-top: 0; }
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .tech-tag {
+      display: inline-block;
+      padding: 5px 12px;
+      background: rgba(96, 165, 250, 0.2);
+      border: 1px solid #60a5fa;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #60a5fa;
+    }
+
+    .category {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    footer { text-align:center; padding:28px; background:#020617; color:#64748b; }
+
+    @media (max-width:640px) { header { padding:36px 12px; } header h1 { font-size:1.8rem; } section { padding:28px 12px; } .projects-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <h1>Portfolio</h1>
+  <p>Detailed showcase of my projects and technical work</p>
+</header>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a href="index.html#about">About</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="data-analytics.html">Analytics</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#contact">Contact</a>
+</nav>
+
+<section id="main">
+  <h2>My Projects</h2>
+  <p>A collection of my work across data analysis, software development, and system design. Each project represents practical problem-solving and technical expertise.</p>
+
+  <div class="projects-grid">
+    <!-- Data Analysis & CSV Cleaning -->
+    <div class="project-card">
+      <div class="category">📊 Data Analysis</div>
+      <h3>CSV Data Cleaning & Preparation</h3>
+      <p>Professional cleaning and organization of messy datasets. Tasks include handling missing values, removing duplicates, standardizing formats, and validating data integrity for analysis-ready outputs.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Pandas</span>
+        <span class="tech-tag">Data Validation</span>
+        <span class="tech-tag">CSV Processing</span>
+      </div>
+    </div>
+
+    <!-- Victory Club System -->
+    <div class="project-card">
+      <div class="category">🏛️ Database Systems</div>
+      <h3>Victory Club Membership System</h3>
+      <p>A comprehensive database-driven system built with Microsoft Access to manage school club memberships, member information, finances, activities, and reporting. Implemented forms, queries, and automated workflows.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">MS Access</span>
+        <span class="tech-tag">Database Design</span>
+        <span class="tech-tag">Forms & Reports</span>
+        <span class="tech-tag">SQL Queries</span>
+      </div>
+    </div>
+
+    <!-- Pygame Car Game -->
+    <div class="project-card">
+      <div class="category">🎮 Game Development</div>
+      <h3>Pygame Car Game</h3>
+      <p>Interactive Python-based game featuring obstacle generation, collision detection, scoring system, and game mechanics. Built with Pygame library focusing on smooth gameplay and code architecture.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Pygame</span>
+        <span class="tech-tag">Game Logic</span>
+        <span class="tech-tag">Collision Detection</span>
+      </div>
+    </div>
+
+    <!-- Flask Web Application -->
+    <div class="project-card">
+      <div class="category">🌐 Web Development</div>
+      <h3>Flask Web Dashboard</h3>
+      <p>A dynamic web application built with Flask framework featuring backend routing, templating, and modular design. Implements MVC architecture with clean separation of concerns.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Flask</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">HTML/CSS</span>
+        <span class="tech-tag">Web Architecture</span>
+      </div>
+    </div>
+
+    <!-- Personal Blog Platform -->
+    <div class="project-card">
+      <div class="category">💻 Web Development</div>
+      <h3>Personal Blog & Portfolio Site</h3>
+      <p>This website! A fully responsive, SEO-optimized personal brand platform built with pure HTML and CSS. Features dark theme design, WhatsApp integration, image gallery, and smooth navigation.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">HTML</span>
+        <span class="tech-tag">CSS</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">Responsive Design</span>
+      </div>
+    </div>
+
+    <!-- C Programming -->
+    <div class="project-card">
+      <div class="category">💾 Systems Programming</div>
+      <h3>C Programming Projects</h3>
+      <p>Low-level programming projects demonstrating memory management, pointer manipulation, data structures, and system-level understanding. Includes algorithms, file I/O, and efficient code practices.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">C</span>
+        <span class="tech-tag">Algorithms</span>
+        <span class="tech-tag">Memory Management</span>
+        <span class="tech-tag">Data Structures</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 style="margin-top: 60px;">Skills & Technologies</h2>
+  <div style="max-width: 600px;">
+    <h3>Languages</h3>
+    <p>Python, C, HTML, CSS, JavaScript, SQL</p>
+    
+    <h3>Data & Analysis</h3>
+    <p>Pandas, CSV Processing, Data Cleaning, Validation, MS Access, SQL Queries</p>
+    
+    <h3>Web & Frameworks</h3>
+    <p>Flask, HTML5, CSS3, Responsive Design, Web Architecture</p>
+    
+    <h3>Tools & Platforms</h3>
+    <p>Git, GitHub, VS Code, Microsoft Access, Pygame</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Stephen Bwami — Built with pure HTML &amp; CSS</p>
+</footer>
+
+</body>
+</html>
