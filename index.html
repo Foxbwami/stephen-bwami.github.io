@@ -287,38 +287,66 @@
     .btn-cancel:hover { background: #475569; }
 
     /* Responsive adjustments */
-    nav { flex-wrap: wrap; }
     @media (max-width: 640px) {
-      /* Slightly smaller base font on phones to improve hierarchy */
-      body { font-size: 15px; padding-top: 0; }
-      /* Compact header on mobile */
-      header {
-      padding: 14px;
-      min-height: auto;
-      }
 
-      header h1 { font-size: 1.3rem; }
-      header p { font-size: 0.85rem; }
-      .profile-pic { width: 60px; height: 60px; top: 12px; right: 12px; }
-      .btn { padding: 8px 16px; font-size: 0.85rem; margin-top: 0; }
-      /* Show mobile menu button, hide desktop nav */
-      .menu-btn { display: block; }
-      nav { display: none; margin-top: 0; }
-      section { padding: 40px 12px; }
-      .placeholder { height: 120px; }
-      .card { padding: 18px; }
-      h2 { font-size: 1.4rem; }
-      .gallery { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
-      .contact-grid { grid-template-columns: 1fr; }
-      .contact-item { width: 100%; }
-      .whatsapp-btn { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 24px; }
-      .modal-content { max-width: 90%; padding: 20px; }
-    }
-    @media (min-width: 641px) and (max-width: 1024px) {
-      header h1 { font-size: 2.4rem; }
-      .placeholder { height: 140px; }
-    }
-  </style>
+  /* Remove vertical push from header */
+  header {
+    padding: 12px 14px;
+    min-height: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-content {
+    gap: 4px;
+  }
+
+  header h1 {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  header p {
+    font-size: 0.82rem;
+    margin: 0;
+  }
+
+  /* Profile image tighter */
+  .profile-pic {
+    width: 56px;
+    height: 56px;
+    top: 10px;
+    right: 10px;
+  }
+
+  /* Mobile menu button */
+  .menu-btn {
+    display: block;
+    top: 10px;
+    left: 10px;
+  }
+
+  /* Kill desktop nav influence completely */
+  nav {
+    display: none !important;
+    height: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Mobile menu layout */
+  .mobile-menu a {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  section {
+    padding: 32px 14px;
+  }
+
+}
+</style>
 </head>
 <body>
 
