@@ -24,6 +24,12 @@
       text-align: center;
       background: linear-gradient(135deg, #020617, #020617);
       position: relative;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 40;
     }
     .profile-pic {
       position: absolute;
@@ -52,12 +58,9 @@
       gap: 30px;
       padding: 20px;
       background: #020617;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      position: relative;
+      margin-top: 320px;
       z-index: 50;
-      width: 100%;
     }
 
     /* Mobile menu button and sidebar */
@@ -267,9 +270,9 @@
     nav { flex-wrap: wrap; }
     @media (max-width: 640px) {
       /* Slightly smaller base font on phones to improve hierarchy */
-      body { font-size: 15px; padding-top: 60px; }
+      body { font-size: 15px; padding-top: 320px; }
       /* Leave space at top so an absolutely positioned profile pic does not overlap content */
-      header { padding: 72px 16px 20px; position: relative; margin-top: 0; }
+      header { padding: 72px 16px 20px; position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 40; }
       /* Reduce heading size for small screens */
       header h1 { font-size: 1.6rem; }
       header p { max-width: 100%; padding: 0 10px; }
@@ -284,7 +287,7 @@
       }
       /* Show mobile menu button, hide desktop nav */
       .menu-btn { display: block; }
-      nav { display: none !important; }
+      nav { display: none; margin-top: 0; }
       section { padding: 40px 12px; }
       .placeholder { height: 120px; }
       .card { padding: 18px; }
@@ -502,11 +505,10 @@
 </body>
 </html>
 <script>
-  // Mobile menu toggling: clone nav markup into mobile menu on first open
+  // Mobile menu toggling: build nav links into mobile menu on first open
   (function() {
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    const nav = document.querySelector('nav');
 
     function buildMobileMenu() {
       if (!mobileMenu.innerHTML.trim()) {
@@ -516,17 +518,26 @@
         closeBtn.addEventListener('click', () => mobileMenu.classList.remove('show'));
         mobileMenu.appendChild(closeBtn);
 
-        // clone nav links
-        if (nav) {
-          const clone = nav.cloneNode(true);
-          clone.style.position = 'static';
-          clone.style.display = 'flex';
-          clone.style.flexDirection = 'column';
-          clone.style.gap = '0';
-          clone.style.padding = '0';
-          clone.style.background = 'none';
-          mobileMenu.appendChild(clone);
-        }
+        // Manually create nav links for mobile menu
+        const links = [
+          { href: 'index.html', text: 'Home' },
+          { href: 'portfolio.html', text: 'Portfolio' },
+          { href: 'data-analytics.html', text: 'Analytics' },
+          { href: 'freelance.html', text: 'Freelance' },
+          { href: 'blog.html', text: 'Blog' },
+          { href: '#contact', text: 'Contact' }
+        ];
+
+        links.forEach(link => {
+          const a = document.createElement('a');
+          a.href = link.href;
+          a.textContent = link.text;
+          a.style.display = 'block';
+          a.style.padding = '12px 0';
+          a.style.color = '#e5e7eb';
+          a.style.fontWeight = '600';
+          mobileMenu.appendChild(a);
+        });
       }
     }
 
@@ -544,3 +555,4 @@
     });
   })();
 </script>
+</html>
