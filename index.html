@@ -204,10 +204,22 @@
     /* Responsive adjustments */
     nav { flex-wrap: wrap; }
     @media (max-width: 640px) {
+      /* Slightly smaller base font on phones to improve hierarchy */
+      body { font-size: 15px; }
       header { padding: 48px 16px; }
-      header h1 { font-size: 2rem; }
+      /* Reduce heading size for small screens */
+      header h1 { font-size: 1.6rem; }
       header p { max-width: 100%; padding: 0 10px; }
-      .profile-pic { width: 80px; height: 80px; top: 10px; right: 10px; }
+      /* Make profile picture part of the normal flow on small screens
+         so it doesn't overlap the header content */
+      .profile-pic {
+        position: static;
+        width: 72px;
+        height: 72px;
+        margin: 0 auto 12px;
+        display: block;
+        border-radius: 50%;
+      }
       section { padding: 40px 12px; }
       .placeholder { height: 120px; }
       .card { padding: 18px; }
@@ -364,8 +376,7 @@
   const whatsappModal = document.getElementById('whatsappModal');
   const confirmBtn = document.getElementById('confirmBtn');
   const cancelBtn = document.getElementById('cancelBtn');
-  const whatsappNumber = '0721894141';
-  
+  const whatsappNumber = '+2540721894141';
   whatsappBtn.addEventListener('click', () => {
     whatsappModal.classList.add('show');
   });
