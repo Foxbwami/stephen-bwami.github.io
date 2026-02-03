@@ -23,13 +23,12 @@
       padding: 20px;
       text-align: left;
       background: linear-gradient(135deg, #020617, #020617);
-      position: relative;
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       width: 100%;
-      z-index: 40;
+      z-index: 100;
       display: flex;
       align-items: center;
       gap: 20px;
@@ -53,10 +52,13 @@
       flex-direction: column;
       justify-content: center;
       gap: 5px;
+      align-items: flex-start;
     }
     header h1 {
       font-size: 1.8rem;
       margin-bottom: 0;
+      margin: 0;
+      line-height: 1.2;
     }
     header p {
       max-width: none;
@@ -73,7 +75,7 @@
       background: #020617;
       position: relative;
       margin-top: 120px;
-      z-index: 50;
+      z-index: 30;
     }
 
     /* Mobile menu button and sidebar */
@@ -155,12 +157,18 @@
 
     .btn {
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 28px;
+      margin-top: 10px;
+      padding: 10px 20px;
       border-radius: 999px;
       background: #38bdf8;
       color: #020617;
       font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
     }
 
     /* Contact / Social icons */
