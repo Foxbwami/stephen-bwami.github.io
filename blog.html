@@ -25,7 +25,6 @@
       padding: 20px;
       text-align: center;
       background: linear-gradient(135deg, #020617, #020617);
-      position: fixed;
       top: 0;
       left: 0;
       right: 0;
@@ -75,7 +74,6 @@
 
     /* Responsive adjustments */
     @media (max-width: 640px) {
-      body { padding-top: 150px; }
       header { padding: 12px 16px; min-height: 100px; }
       .profile-pic { width: 60px; height: 60px; top: 12px; right: 12px; }
       header h1 { font-size: 1.3rem; }
@@ -84,6 +82,9 @@
       /* Show mobile menu button, hide desktop nav */
       .menu-btn { display: block; }
       nav { display: none; margin-top: 0; }
+    }
+    @media (max-width: 640px) {
+  header { margin-bottom: 0; }
     }
 
     /* Make loose links in lists look like post links */
@@ -162,50 +163,63 @@
 </body>
 </html>
 <script>
-  // Mobile menu toggling: build nav links into mobile menu on first open
-  (function() {
+  (function () {
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
 
+    if (!menuBtn || !mobileMenu) return;
+
+    // Build menu once
     function buildMobileMenu() {
-      if (!mobileMenu.innerHTML.trim()) {
-        const closeBtn = document.createElement('button');
-        closeBtn.className = 'close-btn';
-        closeBtn.textContent = '✕ Close';
-        closeBtn.addEventListener('click', () => mobileMenu.classList.remove('show'));
-        mobileMenu.appendChild(closeBtn);
+      if (mobileMenu.dataset.built) return;
 
-        const links = [
-          { href: 'index.html', text: 'Home' },
-          { href: 'portfolio.html', text: 'Portfolio' },
-          { href: 'data-analytics.html', text: 'Analytics' },
-          { href: 'freelance.html', text: 'Freelance' },
-          { href: 'blog.html', text: 'Blog' },
-          { href: 'index.html#contact', text: 'Contact' }
-        ];
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'close-btn';
+      closeBtn.textContent = '✕ Close';
+      closeBtn.addEventListener('click', closeMenu);
+      mobileMenu.appendChild(closeBtn);
 
-        links.forEach(link => {
-          const a = document.createElement('a');
-          a.href = link.href;
-          a.textContent = link.text;
-          a.style.display = 'block';
-          a.style.padding = '12px 0';
-          a.style.color = '#e5e7eb';
-          a.style.fontWeight = '600';
-          mobileMenu.appendChild(a);
-        });
-      }
+      const links = [
+        ['index.html', 'Home'],
+        ['portfolio.html', 'Portfolio'],
+        ['data-analytics.html', 'Analytics'],
+        ['freelance.html', 'Freelance'],
+        ['blog.html', 'Blog'],
+        ['index.html#contact', 'Contact']
+      ];
+
+      links.forEach(([href, text]) => {
+        const a = document.createElement('a');
+        a.href = href;
+        a.textContent = text;
+        a.addEventListener('click', closeMenu);
+        mobileMenu.appendChild(a);
+      });
+
+      mobileMenu.dataset.built = 'true';
     }
 
-    menuBtn.addEventListener('click', () => {
+    function openMenu() {
       buildMobileMenu();
-      mobileMenu.classList.toggle('show');
-      mobileMenu.setAttribute('aria-hidden', !mobileMenu.classList.contains('show'));
+      mobileMenu.classList.add('show');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove('show');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileMenu.classList.contains('show') ? closeMenu() : openMenu();
     });
 
     document.addEventListener('click', (e) => {
-      if (!mobileMenu.contains(e.target) && e.target !== menuBtn && mobileMenu.classList.contains('show')) {
-        mobileMenu.classList.remove('show');
+      if (!mobileMenu.contains(e.target) && e.target !== menuBtn) {
+        closeMenu();
       }
     });
   })();

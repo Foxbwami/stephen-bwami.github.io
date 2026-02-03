@@ -32,7 +32,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 120px;
+      min-height: auto;
       position: relative;
     }
     .profile-pic {
@@ -74,7 +74,6 @@
       padding: 20px;
       background: #020617;
       position: relative;
-      margin-top: 120px;
       z-index: 30;
     }
 
@@ -291,9 +290,13 @@
     nav { flex-wrap: wrap; }
     @media (max-width: 640px) {
       /* Slightly smaller base font on phones to improve hierarchy */
-      body { font-size: 15px; padding-top: 180px; }
+      body { font-size: 15px; padding-top: 0; }
       /* Compact header on mobile */
-      header { padding: 16px; min-height: 100px; }
+      header {
+      padding: 14px;
+      min-height: auto;
+      }
+
       header h1 { font-size: 1.3rem; }
       header p { font-size: 0.85rem; }
       .profile-pic { width: 60px; height: 60px; top: 12px; right: 12px; }
@@ -520,52 +523,63 @@
 </body>
 </html>
 <script>
-  // Mobile menu toggling: build nav links into mobile menu on first open
-  (function() {
+  (function () {
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
 
+    if (!menuBtn || !mobileMenu) return;
+
+    // Build menu once
     function buildMobileMenu() {
-      if (!mobileMenu.innerHTML.trim()) {
-        const closeBtn = document.createElement('button');
-        closeBtn.className = 'close-btn';
-        closeBtn.textContent = '✕ Close';
-        closeBtn.addEventListener('click', () => mobileMenu.classList.remove('show'));
-        mobileMenu.appendChild(closeBtn);
+      if (mobileMenu.dataset.built) return;
 
-        // Manually create nav links for mobile menu
-        const links = [
-          { href: 'index.html', text: 'Home' },
-          { href: 'portfolio.html', text: 'Portfolio' },
-          { href: 'data-analytics.html', text: 'Analytics' },
-          { href: 'freelance.html', text: 'Freelance' },
-          { href: 'blog.html', text: 'Blog' },
-          { href: '#contact', text: 'Contact' }
-        ];
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'close-btn';
+      closeBtn.textContent = '✕ Close';
+      closeBtn.addEventListener('click', closeMenu);
+      mobileMenu.appendChild(closeBtn);
 
-        links.forEach(link => {
-          const a = document.createElement('a');
-          a.href = link.href;
-          a.textContent = link.text;
-          a.style.display = 'block';
-          a.style.padding = '12px 0';
-          a.style.color = '#e5e7eb';
-          a.style.fontWeight = '600';
-          mobileMenu.appendChild(a);
-        });
-      }
+      const links = [
+        ['index.html', 'Home'],
+        ['portfolio.html', 'Portfolio'],
+        ['data-analytics.html', 'Analytics'],
+        ['freelance.html', 'Freelance'],
+        ['blog.html', 'Blog'],
+        ['index.html#contact', 'Contact']
+      ];
+
+      links.forEach(([href, text]) => {
+        const a = document.createElement('a');
+        a.href = href;
+        a.textContent = text;
+        a.addEventListener('click', closeMenu);
+        mobileMenu.appendChild(a);
+      });
+
+      mobileMenu.dataset.built = 'true';
     }
 
-    menuBtn.addEventListener('click', () => {
+    function openMenu() {
       buildMobileMenu();
-      mobileMenu.classList.toggle('show');
-      mobileMenu.setAttribute('aria-hidden', !mobileMenu.classList.contains('show'));
+      mobileMenu.classList.add('show');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove('show');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileMenu.classList.contains('show') ? closeMenu() : openMenu();
     });
 
-    // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (!mobileMenu.contains(e.target) && e.target !== menuBtn && mobileMenu.classList.contains('show')) {
-        mobileMenu.classList.remove('show');
+      if (!mobileMenu.contains(e.target) && e.target !== menuBtn) {
+        closeMenu();
       }
     });
   })();
