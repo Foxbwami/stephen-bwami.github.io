@@ -21,24 +21,30 @@ header {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 20px;
-  background: linear-gradient(135deg, #020617, #020617);
+  padding: 16px 24px;
+  background: #020617;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
- body {
-  padding-top: 120px;
+  justify-content: space-between;
 }
 
+body {
+  padding-top: 120px;
+}
     header h1 { font-size: 1.8rem; margin: 0; line-height: 1.2; }
     header p { color: #94a3b8; margin: 0; }
     .profile-pic { position: absolute; top: 15px; right: 15px; width: 80px; height: 80px; border-radius: 50%; border: 4px solid #38bdf8; object-fit: cover; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3); flex-shrink: 0; }
     .header-content { display: flex; flex-direction: column; justify-content: center; gap: 5px; align-items: center; }
 
-    nav { display:flex; justify-content:center; gap:20px; padding:16px; background:#020617; position:relative; z-index:30; flex-wrap:wrap; }
-    nav a { color:#e5e7eb; font-weight:600; }
-    
+    nav {
+  display: flex;
+  gap: 24px;
+}
+
+nav a {
+  color: #e5e7eb;
+  font-weight: 600;
+}    
     /* Mobile menu button and sidebar */
     .menu-btn { display: none; position: absolute; top: 12px; left: 12px; background: #020617; color: #e5e7eb; border: 1px solid rgba(229,231,235,0.06); width:44px; height:44px; border-radius:8px; font-size:22px; cursor:pointer; z-index:150; }
     .mobile-menu { display:none; position:fixed; top:0; left:0; width:78%; max-width:320px; height:100%; background:#020617; padding:120px 20px 20px 20px; box-shadow:4px 0 30px rgba(0,0,0,0.6); z-index:200; overflow-y:auto; }
@@ -92,6 +98,22 @@ header {
       font-weight: 600;
       letter-spacing: 1px;
     }
+    .header-nav {
+  display: none;
+  gap: 14px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.header-nav a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(56,189,248,0.12);
+  color: #38bdf8;
+}
 
     footer { text-align:center; padding:28px; background:#020617; color:#64748b; }
 
@@ -144,12 +166,13 @@ body {
 
   /* Kill desktop nav influence completely */
   nav {
-    display: none !important;
-    height: 0;
-    margin: 0;
-    padding: 0;
+    display: none;
   }
 
+  .header-nav {
+    display: flex;
+  }
+}
   /* Mobile menu layout */
   .mobile-menu a {
     text-align: center;
@@ -160,31 +183,30 @@ body {
     padding: 32px 14px;
   }
 
-}
-
   </style>
 </head>
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
+<header>
+  <button id="menuBtn" class="menu-btn">☰</button>
 
-<header style="position: relative;">
-  <button id="menuBtn" class="menu-btn" aria-label="Open menu">☰</button>
-  <img src="images/profile.jpg" alt="Stephen Bwami - Profile Picture" class="profile-pic">
   <div class="header-content">
-    <h1>Portfolio</h1>
-    <p>Detailed showcase of my projects and technical work</p>
+    <h1>Stephen Bwami</h1>
+    <p>Software Developer • Data Analyst • CSV Cleaning Specialist</p>
   </div>
-  <div id="mobileMenu" class="mobile-menu" aria-hidden="true"></div>
-</header>
 
-<nav role="navigation" aria-label="Main navigation">
-  <a href="index.html">Home</a>
-  <a href="portfolio.html">Portfolio</a>
-  <a href="data-analytics.html">Analytics</a>
-  <a href="blog.html">Blog</a>
-  <a href="index.html#contact">Contact</a>
-</nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="data-analytics.html">Analytics</a>
+    <a href="freelance.html">Freelance</a>
+    <a href="blog.html">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <img src="images/profile.jpg" class="profile-pic">
+</header>
 
 <section id="main">
   <h2>My Projects</h2>
