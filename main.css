@@ -1,0 +1,206 @@
+/* =========================
+   CSS VARIABLES
+========================= */
+:root {
+  --bg: #0f172a;
+  --bg-alt: #020617;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+}
+
+/* =========================
+   RESET & BASE
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding-top: 80px;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+a {
+  color: inherit;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.alt-bg {
+  background: var(--bg-alt);
+}
+
+/* =========================
+   HEADER / NAV (GLOBAL)
+========================= */
+.site-header {
+  background: var(--bg-alt);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--accent);
+}
+
+.resume-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: var(--accent);
+  color: #020617;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resume-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.35);
+}
+/* =========================
+   TYPOGRAPHY HELPERS
+========================= */
+.highlight {
+  color: var(--accent);
+}
+
+.subtitle {
+  color: var(--muted);
+  max-width: 600px;
+}
+
+/* =========================
+   GRIDS & CARDS
+========================= */
+.grid,
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card,
+.skills-grid li {
+  background: var(--bg-alt);
+  padding: 20px;
+  border-radius: 12px;
+  list-style: none;
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact-grid a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+/* =========================
+   FOOTER
+========================= */
+.site-footer {
+  text-align: center;
+  padding: 32px 0;
+  color: var(--muted);
+}
+
+/* =========================
+   WHATSAPP FLOAT
+========================= */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #25d366;
+  color: white;
+  font-size: 22px;
+  padding: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* =========================
+   MODAL
+========================= */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1001;
+}
+
+.modal-content {
+  background: var(--bg);
+  padding: 24px;
+  max-width: 360px;
+  margin: 20vh auto;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}

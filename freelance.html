@@ -1,245 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Freelance Services | Stephen Bwami</title>
-<meta name="description" content="Freelance data analysis, CSV cleaning, and technical services by Stephen Bwami.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Freelance Services | Stephen Bwami</title>
+  <meta name="description" content="Freelance data analysis, CSV cleaning, and technical services by Stephen Bwami.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:'Inter',sans-serif;
-  background:#0f172a;
-  color:#e5e7eb;
-  line-height:1.6;
-  padding-top:140px;
-}
-a{color:#38bdf8;text-decoration:none}
-
-/* ===== HEADER ===== */
-header{
-  position:fixed;
-  inset:0 0 auto 0;
-  background:#020617;
-  z-index:100;
-  padding:14px 24px;
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  align-items:center;
-  gap:20px;
-}
-
-.profile-pic{
-  width:70px;height:70px;
-  border-radius:50%;
-  border:4px solid #38bdf8;
-  object-fit:cover;
-}
-
-.header-content{
-  text-align:center;
-}
-header h1{
-  font-size:1.6rem;
-}
-header p{
-  color:#94a3b8;
-  font-size:.9rem;
-}
-
-/* ===== DESKTOP NAV ===== */
-nav{
-  display:flex;
-  gap:18px;
-}
-nav a{
-  color:#e5e7eb;
-  font-weight:600;
-  padding:6px 12px;
-  border-radius:999px;
-}
-nav a:hover{
-  background:rgba(56,189,248,.15);
-}
-
-/* ===== MOBILE BUTTON ===== */
-.menu-btn{
-  display:none;
-  background:#020617;
-  color:#e5e7eb;
-  border:1px solid rgba(255,255,255,.1);
-  width:44px;height:44px;
-  border-radius:8px;
-  font-size:22px;
-  cursor:pointer;
-}
-
-/* ===== MOBILE MENU ===== */
-.mobile-menu{
-  display:none;
-  position:fixed;
-  top:0;left:0;
-  width:78%;
-  max-width:320px;
-  height:100%;
-  background:#020617;
-  padding:80px 20px;
-  z-index:200;
-}
-.mobile-menu.show{display:block}
-.mobile-menu a{
-  display:block;
-  padding:14px 0;
-  font-weight:600;
-  text-align:center;
-}
-.close-btn{
-  background:none;
-  border:none;
-  color:#e5e7eb;
-  font-size:18px;
-  margin-bottom:20px;
-}
-
-/* ===== SECTIONS ===== */
-section{
-  max-width:1100px;
-  margin:auto;
-  padding:40px 20px;
-}
-h2{
-  font-size:1.9rem;
-  border-left:4px solid #38bdf8;
-  padding-left:14px;
-  margin-bottom:25px;
-}
-
-/* ===== CARDS ===== */
-.card{
-  background:#020617;
-  padding:26px;
-  border-radius:14px;
-  margin-bottom:30px;
-  box-shadow:0 10px 30px rgba(0,0,0,.35);
-}
-.card ul, .card ol{
-  margin-left:20px;
-}
-
-/* ===== FOOTER ===== */
-footer{
-  text-align:center;
-  padding:28px;
-  background:#020617;
-  color:#64748b;
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:640px){
-  body{padding-top:0}
-  header{
-    grid-template-columns:auto 1fr;
-  }
-  nav{display:none}
-  .menu-btn{display:block}
-}
-</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
 
-<header>
-  <button id="menuBtn" class="menu-btn">☰</button>
-
-  <div class="header-content">
-    <h1>Freelance Services</h1>
-    <p>Data • Systems • Analysis</p>
+<header class="site-header">
+  <div class="container header-flex">
+    <div class="logo">&lt;/&gt; Stephen Bwami</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="freelance.html" class="active">Freelance</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
   </div>
-
-  <img src="images/profile.jpg" alt="Stephen Bwami" class="profile-pic">
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="data-analytics.html">Analytics</a>
-    <a href="blog.html">Blog</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
-
-  <div id="mobileMenu" class="mobile-menu"></div>
 </header>
 
-<section>
-  <div class="card">
-    <h2>Services I Offer</h2>
-    <ul>
-      <li>CSV Cleaning & Data Preparation</li>
-      <li>Data Analysis & Reporting</li>
-      <li>Database Organization</li>
-      <li>Academic & Business Data Support</li>
-    </ul>
-  </div>
+<main>
 
-  <div class="card">
-    <h2>How I Work</h2>
-    <ol>
-      <li>You share your dataset or problem</li>
-      <li>I clean and analyze the data</li>
-      <li>I deliver clean files + insights</li>
-    </ol>
-  </div>
+<!-- HERO -->
+<section class="section container">
+  <h1>Freelance Data & Software Services</h1>
+  <p class="subtitle">
+    I help students, researchers, and small businesses turn messy data into clean,
+    usable insights — quickly and reliably.
+  </p>
+</section>
 
-  <div class="card">
-    <h2>Why Work With Me</h2>
-    <ul>
-      <li>Clear communication</li>
-      <li>Structured, clean results</li>
-      <li>Reliable and detail-oriented</li>
-    </ul>
+<!-- SERVICES -->
+<section class="section alt-bg">
+  <div class="container">
+    <h2>Services</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>CSV Cleaning & Preparation</h3>
+        <p>
+          Fix missing values, formatting issues, duplicates, and inconsistent columns
+          so your data is ready for analysis or reporting.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Data Analysis & Reports</h3>
+        <p>
+          Exploratory analysis, summaries, and clear insights using Python, Excel,
+          or SQL — explained in plain language.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Academic & Business Support</h3>
+        <p>
+          Help with coursework datasets, research data, or small business records
+          that need structure and clarity.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
-<footer>
-  <p>© 2026 Stephen Bwami</p>
+<!-- HOW IT WORKS -->
+<section class="section container">
+  <h2>How It Works</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>1. Share Your Data</h3>
+      <p>
+        You send your dataset and explain the problem you want solved.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>2. I Clean & Analyze</h3>
+      <p>
+        I process the data carefully and communicate progress clearly.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>3. You Get Results</h3>
+      <p>
+        You receive clean files, insights, and explanations you can use immediately.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section class="section alt-bg">
+  <div class="container">
+    <h2>Why Work With Me</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Clear Communication</h3>
+        <p>No jargon. No confusion. You always know what’s happening.</p>
+      </div>
+
+      <div class="card">
+        <h3>Clean, Structured Results</h3>
+        <p>Your data comes back organized, documented, and easy to reuse.</p>
+      </div>
+
+      <div class="card">
+        <h3>Reliable & Detail-Oriented</h3>
+        <p>I treat your data like it matters — because it does.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section container">
+  <h2>Let’s Work Together</h2>
+  <p class="subtitle">
+    If you have data that needs cleaning or analysis, reach out and let’s discuss it.
+  </p>
+
+  <section id="contact" class="section alt-bg">
+  <div class="container">
+    <h2>Contact</h2>
+
+    <div class="contact-grid">
+      <a href="mailto:bwamistevenez001@gmail.com">📧 bwamistevenez001@gmail.com</a>
+      <a href="https://github.com/Foxbwami" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/stephen-bwami-722548253" target="_blank">LinkedIn</a>
+      <a href="https://x.com/Stevene12890" target="_blank">Twitter (X)</a>
+      <a href="https://facebook.com/ProBwami" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/probwami" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@littlefox007j" target="_blank">TikTok</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    © 2026 Stephen Bwami
+  </div>
 </footer>
-
-<script>
-(function(){
-  const menuBtn=document.getElementById('menuBtn');
-  const mobileMenu=document.getElementById('mobileMenu');
-
-  function build(){
-    if(mobileMenu.dataset.built)return;
-    const close=document.createElement('button');
-    close.className='close-btn';
-    close.textContent='✕ Close';
-    close.onclick=()=>mobileMenu.classList.remove('show');
-    mobileMenu.appendChild(close);
-
-    [
-      ['index.html','Home'],
-      ['portfolio.html','Portfolio'],
-      ['data-analytics.html','Analytics'],
-      ['freelance.html','Freelance'],
-      ['blog.html','Blog'],
-      ['index.html#contact','Contact']
-    ].forEach(l=>{
-      const a=document.createElement('a');
-      a.href=l[0];a.textContent=l[1];
-      a.onclick=()=>mobileMenu.classList.remove('show');
-      mobileMenu.appendChild(a);
-    });
-    mobileMenu.dataset.built=1;
-  }
-
-  menuBtn.onclick=()=>{
-    build();
-    mobileMenu.classList.toggle('show');
-  };
-})();
-</script>
 
 </body>
 </html>

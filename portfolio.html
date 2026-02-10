@@ -3,377 +3,164 @@
 <head>
   <meta charset="UTF-8">
   <title>Portfolio | Stephen Bwami</title>
-  <meta name="description" content="Detailed portfolio of Stephen Bwami's projects in data analysis, web development, and software solutions.">
-  <meta name="author" content="Stephen Bwami">
+  <meta name="description" content="Selected software development and data analysis projects by Stephen Bwami.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: #0f172a; color: #e5e7eb; line-height: 1.6; }
-    a { color: #38bdf8; text-decoration: none; }
-    a:focus-visible { outline: 3px solid #60a5fa; outline-offset: 3px; }
-    .skip { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-    .skip:focus { position: static; width: auto; height: auto; left: 0; padding: 10px; background: #020617; color: #e5e7eb; }
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  padding: 16px 24px;
-  background: #020617;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-body {
-  padding-top: 120px;
-}
-    header h1 { font-size: 1.8rem; margin: 0; line-height: 1.2; }
-    header p { color: #94a3b8; margin: 0; }
-    .profile-pic { position: absolute; top: 15px; right: 15px; width: 80px; height: 80px; border-radius: 50%; border: 4px solid #38bdf8; object-fit: cover; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3); flex-shrink: 0; }
-    .header-content { display: flex; flex-direction: column; justify-content: center; gap: 5px; align-items: center; }
-
-    nav {
-  display: flex;
-  gap: 24px;
-}
-
-nav a {
-  color: #e5e7eb;
-  font-weight: 600;
-}    
-    /* Mobile menu button and sidebar */
-    .menu-btn { display: none; position: absolute; top: 12px; left: 12px; background: #020617; color: #e5e7eb; border: 1px solid rgba(229,231,235,0.06); width:44px; height:44px; border-radius:8px; font-size:22px; cursor:pointer; z-index:150; }
-    .mobile-menu { display:none; position:fixed; top:0; left:0; width:78%; max-width:320px; height:100%; background:#020617; padding:120px 20px 20px 20px; box-shadow:4px 0 30px rgba(0,0,0,0.6); z-index:200; overflow-y:auto; }
-    .mobile-menu.show { display:block; }
-    .mobile-menu a { display:block; padding:12px 0; color:#e5e7eb; font-weight:600; }
-    .mobile-menu .close-btn { display:block; margin-bottom:10px; background:transparent; color:#e5e7eb; border:none; font-size:20px; text-align:left; }
-
-    section { max-width:1100px; margin:auto; padding:40px 20px; }
-    h2 { font-size: 1.8rem; margin-bottom: 30px; border-left: 4px solid #38bdf8; padding-left: 15px; }
-    h3 { font-size: 1.3rem; margin-top: 20px; margin-bottom: 10px; color: #60a5fa; }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    .project-card {
-      background: #020617;
-      padding: 30px;
-      border-radius: 12px;
-      border-left: 4px solid #38bdf8;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .project-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(56, 189, 248, 0.2); }
-
-    .project-card h3 { color: #38bdf8; margin-top: 0; }
-    .tech-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 15px;
-    }
-    .tech-tag {
-      display: inline-block;
-      padding: 5px 12px;
-      background: rgba(96, 165, 250, 0.2);
-      border: 1px solid #60a5fa;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      color: #60a5fa;
-    }
-
-    .category {
-      font-size: 0.9rem;
-      color: #94a3b8;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-    .header-nav {
-  display: none;
-  gap: 14px;
-  margin-top: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.header-nav a {
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(56,189,248,0.12);
-  color: #38bdf8;
-}
-
-    footer { text-align:center; padding:28px; background:#020617; color:#64748b; }
-
-    @media (max-width: 640px) {
-    header {
-  position: static;
-}
-
-body {
-  padding-top: 0;
-}
-
-  /* Remove vertical push from header */
-  header {
-    padding: 12px 14px;
-    min-height: unset;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .header-content {
-    gap: 4px;
-  }
-
-  header h1 {
-    font-size: 1.25rem;
-    line-height: 1.2;
-  }
-
-  header p {
-    font-size: 0.82rem;
-    margin: 0;
-  }
-
-  /* Profile image tighter */
-  .profile-pic {
-    width: 56px;
-    height: 56px;
-    top: 10px;
-    right: 10px;
-  }
-
-  /* Mobile menu button */
-  .menu-btn {
-    display: block;
-    top: 10px;
-    left: 10px;
-  }
-
-  /* Kill desktop nav influence completely */
-  nav {
-    display: none;
-  }
-
-  .header-nav {
-    display: flex;
-  }
-}
-  /* Mobile menu layout */
-  .mobile-menu a {
-    text-align: center;
-    font-size: 1rem;
-  }
-
-  section {
-    padding: 32px 14px;
-  }
-
-  </style>
+  <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
 
-<a class="skip" href="#main">Skip to content</a>
-<header>
-  <button id="menuBtn" class="menu-btn">☰</button>
-
-  <div class="header-content">
-    <h1>Stephen Bwami</h1>
-    <p>Software Developer • Data Analyst • CSV Cleaning Specialist</p>
+<header class="site-header">
+  <div class="container header-flex">
+    <div class="logo">&lt;/&gt; Stephen Bwami</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="data-analytics.html">Data Analytics</a>
+      <a href="blog.html">Blog</a>
+      <a href="freelance.html">Freelance</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="data-analytics.html">Analytics</a>
-    <a href="freelance.html">Freelance</a>
-    <a href="blog.html">Blog</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <img src="images/profile.jpg" class="profile-pic">
 </header>
 
-<section id="main">
-  <h2>My Projects</h2>
-  <p>A collection of my work across data analysis, software development, and system design. Each project represents practical problem-solving and technical expertise.</p>
+<main>
 
-  <div class="projects-grid">
-    <!-- Data Analysis & CSV Cleaning -->
-    <div class="project-card">
-      <div class="category">📊 Data Analysis</div>
-      <h3>CSV Data Cleaning & Preparation</h3>
-      <p>Professional cleaning and organization of messy datasets. Tasks include handling missing values, removing duplicates, standardizing formats, and validating data integrity for analysis-ready outputs.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Python</span>
-        <span class="tech-tag">Pandas</span>
-        <span class="tech-tag">Data Validation</span>
-        <span class="tech-tag">CSV Processing</span>
-      </div>
-    </div>
-
-    <!-- Victory Club System -->
-    <div class="project-card">
-      <div class="category">🏛️ Database Systems</div>
-      <h3>Victory Club Membership System</h3>
-      <p>A comprehensive database-driven system built with Microsoft Access to manage school club memberships, member information, finances, activities, and reporting. Implemented forms, queries, and automated workflows.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">MS Access</span>
-        <span class="tech-tag">Database Design</span>
-        <span class="tech-tag">Forms & Reports</span>
-        <span class="tech-tag">SQL Queries</span>
-      </div>
-    </div>
-
-    <!-- Pygame Car Game -->
-    <div class="project-card">
-      <div class="category">🎮 Game Development</div>
-      <h3>Pygame Car Game</h3>
-      <p>Interactive Python-based game featuring obstacle generation, collision detection, scoring system, and game mechanics. Built with Pygame library focusing on smooth gameplay and code architecture.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Python</span>
-        <span class="tech-tag">Pygame</span>
-        <span class="tech-tag">Game Logic</span>
-        <span class="tech-tag">Collision Detection</span>
-      </div>
-    </div>
-
-    <!-- Flask Web Application -->
-    <div class="project-card">
-      <div class="category">🌐 Web Development</div>
-      <h3>Flask Web Dashboard</h3>
-      <p>A dynamic web application built with Flask framework featuring backend routing, templating, and modular design. Implements MVC architecture with clean separation of concerns.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">Flask</span>
-        <span class="tech-tag">Python</span>
-        <span class="tech-tag">HTML/CSS</span>
-        <span class="tech-tag">Web Architecture</span>
-      </div>
-    </div>
-
-    <!-- Personal Blog Platform -->
-    <div class="project-card">
-      <div class="category">💻 Web Development</div>
-      <h3>Personal Blog & Portfolio Site</h3>
-      <p>This website! A fully responsive, SEO-optimized personal brand platform built with pure HTML and CSS. Features dark theme design, WhatsApp integration, image gallery, and smooth navigation.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">HTML</span>
-        <span class="tech-tag">CSS</span>
-        <span class="tech-tag">JavaScript</span>
-        <span class="tech-tag">Responsive Design</span>
-      </div>
-    </div>
-
-    <!-- C Programming -->
-    <div class="project-card">
-      <div class="category">💾 Systems Programming</div>
-      <h3>C Programming Projects</h3>
-      <p>Low-level programming projects demonstrating memory management, pointer manipulation, data structures, and system-level understanding. Includes algorithms, file I/O, and efficient code practices.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">C</span>
-        <span class="tech-tag">Algorithms</span>
-        <span class="tech-tag">Memory Management</span>
-        <span class="tech-tag">Data Structures</span>
-      </div>
-    </div>
-  </div>
-
-  <h2 style="margin-top: 60px;">Skills & Technologies</h2>
-  <div style="max-width: 600px;">
-    <h3>Languages</h3>
-    <p>Python, C, HTML, CSS, JavaScript, SQL</p>
-    
-    <h3>Data & Analysis</h3>
-    <p>Pandas, CSV Processing, Data Cleaning, Validation, MS Access, SQL Queries</p>
-    
-    <h3>Web & Frameworks</h3>
-    <p>Flask, HTML5, CSS3, Responsive Design, Web Architecture</p>
-    
-    <h3>Tools & Platforms</h3>
-    <p>Git, GitHub, VS Code, Microsoft Access, Pygame</p>
+<!-- INTRO -->
+<section class="section">
+  <div class="container">
+    <h1>Portfolio</h1>
+    <p class="subtitle">
+      Selected projects demonstrating my work in software development,
+      data analysis, and structured problem-solving.
+    </p>
   </div>
 </section>
 
-<footer>
-  <p>© 2026 Stephen Bwami</p>
+<!-- FEATURED PROJECTS -->
+<section class="section alt-bg">
+  <div class="container">
+    <h2>Featured Projects</h2>
+
+    <div class="grid">
+
+      <article class="card">
+        <h3>CSV Data Cleaning & Analysis</h3>
+        <p>
+          Cleaned and structured real-world CSV datasets containing
+          missing values, duplicates, and inconsistent formats.
+        </p>
+        <ul>
+          <li>Standardized data types and formats</li>
+          <li>Handled missing and invalid values</li>
+          <li>Prepared analysis-ready datasets</li>
+        </ul>
+        <p class="subtitle">Tools: Python, Pandas, Excel</p>
+      </article>
+
+      <article class="card">
+        <h3>Flask Web Application</h3>
+        <p>
+          Backend-focused web application built with Flask,
+          featuring modular routing and clean architecture.
+        </p>
+        <ul>
+          <li>Implemented MVC-style structure</li>
+          <li>Separated logic, templates, and static assets</li>
+          <li>Focused on maintainability and clarity</li>
+        </ul>
+        <p class="subtitle">Tools: Python, Flask, HTML, CSS</p>
+      </article>
+
+      <article class="card">
+        <h3>Victory Club Membership System</h3>
+        <p>
+          Database-driven system designed to manage memberships,
+          finances, and reporting for a school club.
+        </p>
+        <ul>
+          <li>Designed relational database structure</li>
+          <li>Created forms, queries, and reports</li>
+          <li>Automated workflows for data management</li>
+        </ul>
+        <p class="subtitle">Tools: MS Access, SQL</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- OTHER PROJECTS -->
+<section class="section">
+  <div class="container">
+    <h2>Other Projects</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Pygame Car Game</h3>
+        <p>Python-based game implementing obstacle logic and scoring.</p>
+        <p class="subtitle">Python, Pygame</p>
+      </div>
+
+      <div class="card">
+        <h3>C Programming Projects</h3>
+        <p>Low-level programs focused on memory management and algorithms.</p>
+        <p class="subtitle">C, Data Structures</p>
+      </div>
+
+      <div class="card">
+        <h3>Personal Blog & Portfolio</h3>
+        <p>Responsive, SEO-optimized personal website.</p>
+        <p class="subtitle">HTML, CSS, JavaScript</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS USED -->
+<section class="section alt-bg">
+  <div class="container">
+    <h2>Skills Demonstrated</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Programming</h3>
+        <p>Python, JavaScript, C, SQL</p>
+      </div>
+
+      <div class="card">
+        <h3>Data</h3>
+        <p>Data cleaning, validation, analysis, CSV processing</p>
+      </div>
+
+      <div class="card">
+        <h3>Web</h3>
+        <p>Flask, HTML, CSS, application structure</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <h2>Next</h2>
+    <p>Explore my data analysis work or get in touch.</p>
+
+    <div class="contact-grid">
+      <a href="data-analytics.html" class="resume-btn">Data Analytics</a>
+      <a href="#contact" class="resume-btn">Contact Me</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Stephen Bwami</p>
+  </div>
 </footer>
 
 </body>
-</html>
-<script>
-  (function () {
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    if (!menuBtn || !mobileMenu) return;
-
-    // Build menu once
-    function buildMobileMenu() {
-      if (mobileMenu.dataset.built) return;
-
-      const closeBtn = document.createElement('button');
-      closeBtn.className = 'close-btn';
-      closeBtn.textContent = '✕ Close';
-      closeBtn.addEventListener('click', closeMenu);
-      mobileMenu.appendChild(closeBtn);
-
-      const links = [
-        ['index.html', 'Home'],
-        ['portfolio.html', 'Portfolio'],
-        ['data-analytics.html', 'Analytics'],
-        ['freelance.html', 'Freelance'],
-        ['blog.html', 'Blog'],
-        ['index.html#contact', 'Contact']
-      ];
-
-      links.forEach(([href, text]) => {
-        const a = document.createElement('a');
-        a.href = href;
-        a.textContent = text;
-        a.addEventListener('click', closeMenu);
-        mobileMenu.appendChild(a);
-      });
-
-      mobileMenu.dataset.built = 'true';
-    }
-
-    function openMenu() {
-      buildMobileMenu();
-      mobileMenu.classList.add('show');
-      mobileMenu.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-      mobileMenu.classList.remove('show');
-      mobileMenu.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    menuBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      mobileMenu.classList.contains('show') ? closeMenu() : openMenu();
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!mobileMenu.contains(e.target) && e.target !== menuBtn) {
-        closeMenu();
-      }
-    });
-  })();
-</script>
 </html>

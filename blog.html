@@ -3,281 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <title>Blog | Stephen Bwami</title>
-  <meta name="description" content="Blog by Stephen Bwami on data analytics, CSV cleaning, programming, and personal growth in technology.">
-  <meta name="author" content="Stephen Bwami">
+  <meta name="description" content="Programming, data analysis, and learning notes by Stephen Bwami.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      line-height: 1.6;
-    }
-    a { color: #38bdf8; text-decoration: none; }
-    a:focus-visible { outline: 3px solid #60a5fa; outline-offset: 3px; }
-    .skip { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-    .skip:focus { position: static; width: auto; height: auto; left: 0; padding: 10px; background: #020617; color: #e5e7eb; }
-
-  header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  padding: 20px;
-  background: linear-gradient(135deg, #020617, #020617);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-body {
-  padding-top: 120px;
-}
-
-    header h1 { font-size: 1.8rem; margin: 0; line-height: 1.2; }
-    header p { color: #94a3b8; margin: 0; }
-    .profile-pic { position: absolute; top: 15px; right: 15px; width: 80px; height: 80px; border-radius: 50%; border: 4px solid #38bdf8; object-fit: cover; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3); flex-shrink: 0; }
-    .header-content { display: flex; flex-direction: column; justify-content: center; gap: 5px; align-items: center; }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 16px;
-      background: #020617;
-      position: relative;
-      margin-top: 100px;
-      z-index: 30;
-      flex-wrap: wrap;
-    }
-    nav a { color: #e5e7eb; font-weight: 600; }
-
-    /* Mobile menu button and sidebar */
-    .menu-btn { display: none; position: absolute; top: 12px; left: 12px; background: #020617; color: #e5e7eb; border: 1px solid rgba(229,231,235,0.06); width:44px; height:44px; border-radius:8px; font-size:22px; cursor:pointer; z-index:150; }
-    .mobile-menu { display:none; position:fixed; top:0; left:0; width:78%; max-width:320px; height:100%; background:#020617; padding:120px 20px 20px 20px; box-shadow:4px 0 30px rgba(0,0,0,0.6); z-index:200; overflow-y:auto; }
-    .mobile-menu.show { display:block; }
-    .mobile-menu a { display:block; padding:12px 0; color:#e5e7eb; font-weight:600; }
-    .mobile-menu .close-btn { display:block; margin-bottom:10px; background:transparent; color:#e5e7eb; border:none; font-size:20px; text-align:left; }
-
-    section { max-width: 1100px; margin: auto; padding: 40px 20px; }
-
-    h2 { font-size: 1.6rem; margin-bottom: 18px; }
-    .post { background: #020617; padding: 20px; border-radius: 12px; margin-bottom: 20px; }
-    .post h2 a { color: #60a5fa; font-weight: 600; border-bottom: 2px solid transparent; transition: border-color 0.3s, color 0.3s; }
-    .post h2 a:hover { color: #38bdf8; border-bottom: 2px solid #38bdf8; }
-    .date { color: #94a3b8; font-size: 0.9em; }
-    .btn { display:inline-block; margin-top:10px; padding:10px 20px; border-radius:999px; background:#38bdf8; color:#020617; font-weight:600; text-decoration:none; white-space:nowrap; flex-shrink:0; font-size:0.95rem; }
-
-    footer { text-align: center; padding: 28px; background: #020617; color: #64748b; }
-
-    /* Responsive adjustments */
-    @media (max-width: 640px) {
-  header {
-  position: static;
-}
-
-body {
-  padding-top: 0;
-}
-
-  /* Remove vertical push from header */
-  header {
-    padding: 12px 14px;
-    min-height: unset;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .header-content {
-    gap: 4px;
-  }
-
-  header h1 {
-    font-size: 1.25rem;
-    line-height: 1.2;
-  }
-
-  header p {
-    font-size: 0.82rem;
-    margin: 0;
-  }
-
-  /* Profile image tighter */
-  .profile-pic {
-    width: 56px;
-    height: 56px;
-    top: 10px;
-    right: 10px;
-  }
-
-  /* Mobile menu button */
-  .menu-btn {
-    display: block;
-    top: 10px;
-    left: 10px;
-  }
-
-  /* Kill desktop nav influence completely */
-  nav {
-    display: none !important;
-    height: 0;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Mobile menu layout */
-  .mobile-menu a {
-    text-align: center;
-    font-size: 1rem;
-  }
-
-  section {
-    padding: 32px 14px;
-  }
-
-}
-
-
-    /* Make loose links in lists look like post links */
-    h2 > a { color: #60a5fa; font-weight: 600; border-bottom: 2px solid transparent; transition: border-color 0.3s, color 0.3s; }
-    h2 > a:hover { color: #38bdf8; border-bottom: 2px solid #38bdf8; }
-  </style>
+  <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
 
-<a class="skip" href="#main">Skip to content</a>
-
-<header style="position: relative;">
-  <button id="menuBtn" class="menu-btn" aria-label="Open menu">☰</button>
-  <img src="images/profile.jpg" alt="Stephen Bwami - Profile Picture" class="profile-pic">
-  <div class="header-content">
-    <h1>Blog</h1>
-    <p>Thoughts on data, systems, and growth</p>
+<header class="site-header">
+  <div class="container header-flex">
+    <div class="logo">&lt;/&gt; Stephen Bwami</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="freelance.html">Freelance</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="resume.pdf" class="resume-btn">Resume</a>
+    </nav>
   </div>
-  <div id="mobileMenu" class="mobile-menu" aria-hidden="true"></div>
 </header>
 
-<nav role="navigation" aria-label="Main navigation">
-  <a href="index.html">Home</a>
-  <a href="portfolio.html">Portfolio</a>
-  <a href="data-analytics.html">Analytics</a>
-  <a href="blog.html">Blog</a>
-  <a href="index.html#contact">Contact</a>
-</nav>
- 
-<section id="main">
+<main>
 
-  <div class="post">
-    <h2>
-      <a href="blog/csv-cleaning-basics.html">CSV Cleaning Basics for Beginners</a>
-    </h2>
-    <p class="date">February 2026</p>
-    <p>
-      An introduction to cleaning messy CSV files and preparing data for
-      analysis.
-    </p>
-  </div>
-
-  <div class="post">
-    <h2>
-      <a href="blog/why-data-cleaning-matters.html">Why Data Cleaning Matters More Than Analysis</a>
-    </h2>
-    <p class="date">February 2026</p>
-    <p>
-      Clean data is the foundation of every reliable insight. Here’s why it
-      matters.
-    </p>
-  </div>
-
-  <div class="post">
-    <h2>
-      <a href="blog/learning-c-as-a-student.html">Learning C Programming as a BBIT Student</a>
-    </h2>
-    <p class="date">February 2026</p>
-    <p>
-      Lessons, challenges, and growth from learning C at university.
-    </p>
-  </div>
-
-    <h2>  
-      <a href="blog/how-i-clean-csv-files.html">How I Clean CSV Files for Data Analysis</a><br>
-      <a href="blog/common-csv-data-mistakes.html">Common CSV Data Mistakes and How to Fix Them</a><br>
-      <a href="blog/data-analysis-as-a-student.html">Learning Data Analysis as a Student</a>
-    </h2>
+<!-- HERO -->
+<section class="section container">
+  <h1>Blog</h1>
+  <p class="subtitle">
+    Notes, tutorials, and insights from my journey in programming,
+    data analysis, and problem-solving.
+  </p>
 </section>
 
-<footer>
-  <p>© 2026 Stephen Bwami</p>
+<!-- BLOG POSTS -->
+<section class="section alt-bg">
+  <div class="container">
+    <h2>Latest Posts</h2>
+
+    <div class="grid">
+
+      <article class="card">
+        <h3>
+          <a href="blog/why-data-cleaning-matters.html">
+            Why Data Cleaning Matters More Than Analysis
+          </a>
+        </h3>
+        <p class="subtitle">February 2026</p>
+        <p>
+          Clean data is the foundation of every reliable insight.
+          Here’s why cleaning often matters more than the analysis itself.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>
+          <a href="blog/learning-c-as-a-student.html">
+            Learning C Programming as a BBIT Student
+          </a>
+        </h3>
+        <p class="subtitle">February 2026</p>
+        <p>
+          Lessons, challenges, and growth from learning C programming at university.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>
+          <a href="blog/how-i-clean-csv-files.html">
+            How I Clean CSV Files for Data Analysis
+          </a>
+        </h3>
+        <p class="subtitle">January 2026</p>
+        <p>
+          A practical breakdown of my process for cleaning CSV files
+          before any analysis begins.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>
+          <a href="blog/common-csv-data-mistakes.html">
+            Common CSV Data Mistakes and How to Fix Them
+          </a>
+        </h3>
+        <p class="subtitle">January 2026</p>
+        <p>
+          The most frequent issues I see in real-world CSV files
+          and how to correct them efficiently.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>
+          <a href="blog/data-analysis-as-a-student.html">
+            Learning Data Analysis as a Student
+          </a>
+        </h3>
+        <p class="subtitle">January 2026</p>
+        <p>
+          What studying data analysis taught me about thinking,
+          problem-solving, and decision-making.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section container">
+  <h2>Want to Stay Updated?</h2>
+  <p class="subtitle">
+    I regularly write about programming, data, and learning.
+    Feel free to reach out or connect.
+  </p>
+
+  <section id="contact" class="section alt-bg">
+  <div class="container">
+    <h2>Contact</h2>
+
+    <div class="contact-grid">
+      <a href="mailto:bwamistevenez001@gmail.com">📧 bwamistevenez001@gmail.com</a>
+      <a href="https://github.com/Foxbwami" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/stephen-bwami-722548253" target="_blank">LinkedIn</a>
+      <a href="https://x.com/Stevene12890" target="_blank">Twitter (X)</a>
+      <a href="https://facebook.com/ProBwami" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/probwami" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@littlefox007j" target="_blank">TikTok</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    © 2026 Stephen Bwami
+  </div>
 </footer>
 
 </body>
-</html>
-<script>
-  (function () {
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    if (!menuBtn || !mobileMenu) return;
-
-    // Build menu once
-    function buildMobileMenu() {
-      if (mobileMenu.dataset.built) return;
-
-      const closeBtn = document.createElement('button');
-      closeBtn.className = 'close-btn';
-      closeBtn.textContent = '✕ Close';
-      closeBtn.addEventListener('click', closeMenu);
-      mobileMenu.appendChild(closeBtn);
-
-      const links = [
-        ['index.html', 'Home'],
-        ['portfolio.html', 'Portfolio'],
-        ['data-analytics.html', 'Analytics'],
-        ['freelance.html', 'Freelance'],
-        ['blog.html', 'Blog'],
-        ['index.html#contact', 'Contact']
-      ];
-
-      links.forEach(([href, text]) => {
-        const a = document.createElement('a');
-        a.href = href;
-        a.textContent = text;
-        a.addEventListener('click', closeMenu);
-        mobileMenu.appendChild(a);
-      });
-
-      mobileMenu.dataset.built = 'true';
-    }
-
-    function openMenu() {
-      buildMobileMenu();
-      mobileMenu.classList.add('show');
-      mobileMenu.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-      mobileMenu.classList.remove('show');
-      mobileMenu.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    menuBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      mobileMenu.classList.contains('show') ? closeMenu() : openMenu();
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!mobileMenu.contains(e.target) && e.target !== menuBtn) {
-        closeMenu();
-      }
-    });
-  })();
-</script>
 </html>

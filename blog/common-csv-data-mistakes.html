@@ -1,64 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Common CSV Data Mistakes and How to Fix Them | Stephen Bwami</title>
-  <meta name="description" content="Common CSV data mistakes that affect analysis and how to correct them.">
-  <meta name="author" content="Stephen Bwami">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Common CSV data mistakes that affect analysis and how to fix them." />
+  <meta name="author" content="Stephen Bwami" />
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: #0f172a; color: #e5e7eb; line-height: 1.6; }
-    a { color: #38bdf8; text-decoration: none; }
-    a:focus-visible { outline: 3px solid #60a5fa; outline-offset: 3px; }
-    header { padding: 40px 20px; text-align: center; background: linear-gradient(135deg, #020617, #020617); }
-    header h1 { font-size: 2rem; margin-bottom: 8px; }
-    header p { color: #94a3b8; }
-    nav { display: flex; justify-content: center; gap: 20px; padding: 16px; background: #020617; position: sticky; top: 0; z-index: 20; flex-wrap: wrap; }
-    nav a { color: #e5e7eb; font-weight: 600; }
-    article { max-width: 900px; margin: auto; padding: 40px 20px; }
-    h2 { margin-top: 24px; margin-bottom: 12px; }
-    .date { color: #94a3b8; font-size: 0.9em; }
-    footer { text-align: center; padding: 28px; background: #020617; color: #64748b; }
-    @media (max-width: 640px) { header { padding: 28px 12px; } header h1 { font-size: 1.6rem; } article { padding: 24px 12px; } }
-  </style>
+  <link rel="stylesheet" href="../main.css">
 </head>
+
 <body>
 
-<header>
-  <h1>Common CSV Data Mistakes and How to Fix Them</h1>
-  <p class="date">April 2026</p>
+<header class="site-header">
+  <div class="container header-flex">
+    <div class="logo">&lt;/&gt; Stephen Bwami</div>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="../index.html">Home</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="../resume.pdf" target="_blank" class="resume-btn">Resume</a>
+    </nav>
+  </div>
 </header>
 
-<nav role="navigation" aria-label="Main navigation">
-  <a href="../index.html">Home</a>
-  <a href="../blog.html">← Back to Blog</a>
-</nav>
+<main>
 
-<article>
-  <p>
-Many CSV files look correct at first glance but contain hidden problems that
-can distort analysis results.
-  </p>
+  <section class="section container">
+    <header class="post-header">
+      <h1>Common CSV Data Mistakes and How to Fix Them</h1>
+      <p class="post-meta">April 2026</p>
+    </header>
 
-  <p>
-Some common mistakes include inconsistent date formats, empty cells,
-duplicate records, and incorrect data types.
-  </p>
+    <article class="post-content">
+      <p>
+        Many CSV files look correct at first glance but contain hidden problems
+        that can distort analysis results.
+      </p>
 
-  <p>
-Fixing these issues requires careful inspection and validation of the dataset.
-Simple checks can prevent serious analytical errors.
-  </p>
+      <p>
+        Common issues include inconsistent date formats, empty cells,
+        duplicate records, and incorrect data types that break calculations
+        or lead to misleading insights.
+      </p>
 
-  <p>
-Understanding these mistakes improves data quality and confidence in insights.
-  </p>
-</article>
+      <p>
+        Fixing these problems requires careful inspection, validation,
+        and consistency checks before analysis begins.
+      </p>
 
-<footer>
-  <p>© 2026 Stephen Bwami</p>
+      <p>
+        By identifying and correcting these mistakes early, you improve
+        data quality and increase confidence in your conclusions.
+      </p>
+    </article>
+
+    <div class="post-footer">
+      <a href="../blog.html" class="text-link">← Back to Blog</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Stephen Bwami. All rights reserved.</p>
+  </div>
 </footer>
 
 </body>
