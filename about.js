@@ -16,6 +16,14 @@
       updates.forEach(item=>{
         const article=document.createElement('article');
         article.className='about-update-card';
+        if(item.photo){
+          const img=document.createElement('img');
+          img.className='about-update-photo';
+          img.src=item.photo;
+          img.alt=item.title ? 'Photo for '+item.title : 'Event photo';
+          img.loading='lazy';
+          article.append(img);
+        }
         const date=document.createElement('span'); date.className='update-date'; date.textContent=item.date||'Milestone';
         const title=document.createElement('h3'); title.textContent=item.title||'Update';
         const description=document.createElement('p'); description.textContent=item.description||'';
@@ -25,9 +33,8 @@
     }
     if(gallery.length){
       galleryRoot.innerHTML='';
-      gallery.forEach((item,index)=>{
+      gallery.forEach(item=>{
         const figure=document.createElement('figure');
-        if(index===1) figure.className='gallery-tall';
         const img=document.createElement('img'); img.src=item.image; img.alt=item.alt||item.caption||'Photo from Stephen Bwami’s journey'; img.loading='lazy';
         const caption=document.createElement('figcaption'); caption.textContent=item.caption||'A moment along the way';
         figure.append(img,caption); galleryRoot.append(figure);
