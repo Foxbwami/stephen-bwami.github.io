@@ -246,3 +246,5 @@
 .about-gallery-grid figure:nth-child(1),.about-gallery-grid figure:nth-child(2),.about-gallery-grid figure:nth-child(3),.about-gallery-grid figure:nth-child(4){grid-column:auto;grid-row:auto;display:block}
 @media(max-width:850px){.about-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:210px 210px}}
 @media(max-width:560px){.about-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:170px 170px}.about-gallery-grid figure:nth-child(1),.about-gallery-grid figure:nth-child(2),.about-gallery-grid figure:nth-child(3),.about-gallery-grid figure:nth-child(4){grid-column:auto;grid-row:auto;display:block}}
+
+.about-update-photo{width:100%;height:150px;object-fit:cover;border-radius:10px;margin-bottom:16px;border:1px solid var(--line)}
