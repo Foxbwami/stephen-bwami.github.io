@@ -2,7 +2,7 @@ backend:
   name: turbo-github
   # Replace this after creating the site in Decap Turbo.
   # The site ID is shown on the site's Overview page.
-  turbo_site_id: YOUR_DECAP_TURBO_SITE_ID
+  turbo_site_id: 97206d05-137e-4156-af1c-56e0033fc558
   branch: main
 
 media_folder: "images/about"
