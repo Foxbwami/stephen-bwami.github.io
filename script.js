@@ -1,17 +1,29 @@
-const whatsappBtn = document.getElementById('whatsappBtn');
-const modal = document.getElementById('whatsappModal');
-const confirmBtn = document.getElementById('confirmBtn');
-const cancelBtn = document.getElementById('cancelBtn');
+// Responsive navigation for the homepage.
+const menuToggle = document.querySelector('.menu-toggle');
+const primaryNavigation = document.querySelector('#primary-navigation');
 
-whatsappBtn.addEventListener('click', () => {
-  modal.style.display = 'block';
-});
+if (menuToggle && primaryNavigation) {
+  const closeMenu = () => {
+    primaryNavigation.classList.remove('is-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Open navigation');
+  };
 
-cancelBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
+  menuToggle.addEventListener('click', () => {
+    const isOpen = primaryNavigation.classList.toggle('is-open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+  });
 
-confirmBtn.addEventListener('click', () => {
-  window.open('https://wa.me/256000000000', '_blank');
-  modal.style.display = 'none';
-});
+  primaryNavigation.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) closeMenu();
+  });
+}
