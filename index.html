@@ -227,36 +227,59 @@
       </div>
     </section>
 
-    <section class="home-gallery" aria-label="A few moments">
-      <div class="container gallery-heading"><p class="eyebrow">A FEW MOMENTS</p><span>Outside the screen</span></div>
-      <div class="container gallery-grid">
-        <img src="images/activity-1.jpg" alt="Stephen Bwami, personal photo" loading="lazy">
-        <img src="images/activity-3.jpg" alt="A moment from Stephen's activities" loading="lazy">
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer home-footer" id="contact">
-    <div class="container footer-main">
-      <div class="footer-brand-block">
-        <a class="home-brand" href="index.html"><span class="brand-mark"><img src="assets/sb-mark.svg" alt=""></span><span>Stephen <strong>Bwami</strong></span></a>
-        <p>Software development · Data analytics</p>
-        <p class="footer-note">Have a question, an idea, or an opportunity? I’d be glad to hear from you.</p>
-      </div>
-      <div class="footer-contact-block">
-        <span class="footer-label">GET IN TOUCH</span>
-        <a class="footer-email" href="mailto:bwamistevenez001@gmail.com">bwamistevenez001@gmail.com <span aria-hidden="true">↗</span></a>
-        <div class="footer-socials">
-          <a href="https://github.com/Foxbwami" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-          <a href="https://linkedin.com/in/stephen-bwami-722548253" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-          <a href="https://x.com/Stevene12890" target="_blank" rel="noopener noreferrer">X ↗</a>
-          <a href="https://www.instagram.com/probwami" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+    <div class="container footer-container">
+      <section class="footer-cta-card" aria-labelledby="footer-cta-title">
+        <div class="cta-text">
+          <span class="eyebrow">NEXT STEPS</span>
+          <h2 id="footer-cta-title">Have a project, dataset, or idea in mind?</h2>
+          <p>Let’s discuss how thoughtful software and structured data can simplify your workflow.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="mailto:bwamistevenez001@gmail.com?subject=Project%20enquiry" class="button button-primary">Start a conversation ↗</a>
+          <button id="copy-email-btn" class="button button-quiet" type="button" data-email="bwamistevenez001@gmail.com">Copy email</button>
+        </div>
+      </section>
+
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="home-brand" href="index.html" aria-label="Stephen Bwami home">
+            <span class="brand-mark"><img src="assets/sb-mark.svg" alt=""></span>
+            <span>Stephen <strong>Bwami</strong></span>
+          </a>
+          <p class="brand-tagline">Software developer and data analyst building practical web applications and reliable data workflows.</p>
+          <div class="availability-badge"><span class="status-dot" aria-hidden="true"></span><span>Open to project enquiries</span></div>
+        </div>
+
+        <nav class="footer-links" aria-label="Footer navigation">
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="portfolio.html">Selected case studies</a></li>
+            <li><a href="data-analytics.html">Data analytics</a></li>
+            <li><a href="freelance.html">Services &amp; freelance</a></li>
+            <li><a href="blog.html">Blog &amp; notes</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-connect">
+          <h3>Get in touch</h3>
+          <a href="mailto:bwamistevenez001@gmail.com" class="footer-email">bwamistevenez001@gmail.com ↗</a>
+          <div class="social-pills">
+            <a href="https://github.com/Foxbwami" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="https://linkedin.com/in/stephen-bwami-722548253" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://x.com/Stevene12890" target="_blank" rel="noopener noreferrer">X ↗</a>
+            <a href="https://www.instagram.com/probwami" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="container footer-bottom">
-      <p>© 2026 Stephen Bwami. Built with curiosity and care.</p>
-      <a href="#top" class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top ↑</a>
+
+      <div class="footer-bottom">
+        <p>© 2026 Stephen Bwami. Built with curiosity and care.</p>
+        <a href="#top" class="back-top">Back to top ↑</a>
+      </div>
     </div>
   </footer>
   <script src="script.js"></script>
