@@ -1,4 +1,11 @@
-name,age,date_joined,sales
-John,23,2024-01-12,500
-Mary,0,2024-01-13,700
-Paul,29,2024-01-13,0
+order_id,customer,county,order_date,product,quantity,unit_price_kes,total_kes,payment_status
+ORD-1001,Amina W.,Nairobi,2026-10-14,Notebook,3,120,360,Paid
+ORD-1002,Brian K.,Mombasa,2026-10-14,Pen,10,25,250,Paid
+ORD-1003,Carol M.,Kisumu,2026-10-15,USB Drive,2,850,1700,Paid
+ORD-1004,David O.,Nairobi,2026-10-16,Notebook,5,120,600,Pending
+ORD-1005,Eunice N.,Nakuru,2026-10-16,Folder,4,75,300,Paid
+ORD-1006,Farah A.,Mombasa,2026-10-17,Pen,8,25,200,Paid
+ORD-1007,George T.,Kisumu,2026-10-18,USB Drive,1,850,850,Paid
+ORD-1008,Hellen P.,Nairobi,2026-10-18,Notebook,2,,,Pending
+ORD-1009,Isaac R.,Nakuru,2026-10-19,Folder,6,75,450,Paid
+ORD-1010,Joy K.,Mombasa,2026-10-20,Pen,12,25,300,Paid
