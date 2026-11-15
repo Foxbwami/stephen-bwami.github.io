@@ -1,1 +1,68 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#07111f"><meta name="description" content="A practical walkthrough of how I prepare CSV files before analysis."><title>How I Clean CSV Files for Data Analysis | Stephen Bwami</title><link rel="canonical" href="https://foxbwami.github.io/stephen-bwami.github.io/blog/how-i-clean-csv-files.html"><link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../main.css?v=20261115"></head><body id="top"><header class="site-header"><div class="container header-flex"><a class="home-brand" href="../index.html"><span class="brand-mark"><img src="../assets/sb-mark.svg" alt=""></span><span>Stephen <strong>Bwami</strong></span></a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button><nav class="nav" id="primary-navigation" aria-label="Main navigation"><a href="../index.html">Home</a><a href="../index.html#about">About</a><a href="../portfolio.html" >Portfolio</a><a href="../data-analytics.html" >Data</a><a href="../blog.html" class="active">Blog</a><a href="../freelance.html" >Freelance</a><a class="nav-contact" href="../index.html#contact">Let’s talk ↗</a></nav></div></header><main class="container post-shell"><header class="post-header"><p class="page-kicker">NOTES / MARCH 2026</p><h1>How I Clean CSV Files for Data Analysis</h1><p class="post-meta">March 2026 · By Stephen Bwami</p></header><article class="post-content"><p>Before any analysis begins, I focus on understanding and cleaning the dataset. CSV files can contain missing values, duplicates, and inconsistent formats.</p><h2>1. Inspect the structure</h2><p>I start by reviewing column names, data types, sample rows, and the overall shape of the dataset. Clear naming makes the file easier to understand and maintain.</p><h2>2. Handle missing values</h2><p>I identify empty or incomplete fields and decide whether to fill them, retain them, or remove affected rows. The right choice depends on the dataset and its purpose.</p><h2>3. Remove duplicates and standardize</h2><p>I check for repeated records and standardize formats such as dates, text, and numbers.</p><p>Finally, I validate the result and keep the cleaned file separate from the original. A repeatable process helps make the analysis more reliable.</p></article><section class="related-reading" aria-label="Related articles"><div><span class="page-kicker">KEEP EXPLORING</span><h2>More notes from the build</h2><p>Explore more practical notes on data, programming, and building useful tools.</p></div><div class="related-reading-links"><a href="csv-cleaning-basics.html">CSV cleaning basics <span>↗</span></a><a href="how-i-clean-csv-files.html">How I clean CSV files <span>↗</span></a><a href="data-analysis-as-a-student.html">Learning data analysis <span>↗</span></a><a href="../data-analytics.html">Explore data analytics <span>↗</span></a></div></section><div class="post-footer"><a class="button button-quiet" href="../blog.html">← Back to all articles</a></div></main><footer class="site-footer"><div class="container footer-inner"><a class="home-brand" href="../index.html"><span class="brand-mark"><img src="../assets/sb-mark.svg" alt=""></span><span>Stephen <strong>Bwami</strong></span></a><p>© 2026 Stephen Bwami. Code • Analyze • Innovate.</p><a class="back-top" href="#top">Back to top ↑</a><nav class="footer-social-row" aria-label="Social links"><a href="https://github.com/Foxbwami" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://linkedin.com/in/stephen-bwami-722548253" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://x.com/Stevene12890" target="_blank" rel="noopener noreferrer">X ↗</a><a href="https://www.instagram.com/probwami" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="mailto:bwamistevenez001@gmail.com">Email ↗</a></nav></div></footer><script src="../script.js?v=20261115"></script></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#07111f"><meta name="description" content="A step-by-step CSV cleaning workflow using Python and pandas, including inspection, missing values, duplicates, type conversion and validation."><title>How I Clean CSV Files for Data Analysis | Stephen Bwami</title><link rel="canonical" href="https://foxbwami.github.io/stephen-bwami.github.io/blog/how-i-clean-csv-files.html"><link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../main.css?v=20261115"></head><body id="top"><header class="site-header"><div class="container header-flex"><a class="home-brand" href="../index.html"><span class="brand-mark"><img src="../assets/sb-mark.svg" alt=""></span><span>Stephen <strong>Bwami</strong></span></a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button><nav class="nav" id="primary-navigation" aria-label="Main navigation"><a href="../index.html">Home</a><a href="../index.html#about">About</a><a href="../portfolio.html" >Portfolio</a><a href="../data-analytics.html" >Data</a><a href="../blog.html" class="active">Blog</a><a href="../freelance.html" >Freelance</a><a class="nav-contact" href="../index.html#contact">Let’s talk ↗</a></nav></div></header><main class="container post-shell"><header class="post-header"><p class="page-kicker">NOTES / MARCH 2026</p><h1>How I Clean CSV Files for Data Analysis</h1><p class="post-meta">March 2026 · 10 min read · By Stephen Bwami</p></header><article class="post-content"><p class="article-lead">When I work with a CSV dataset, I avoid jumping straight into charts or calculations. My first priority is to understand what the file contains and whether its values can be trusted for the task at hand.</p>
+<p>This article walks through a practical workflow using Python and pandas. The example is intentionally general: cleaning rules should always be adapted to the meaning and source of the actual dataset.</p>
+<h2 id="preserve">1. Preserve the original file</h2>
+<p>I keep the raw file unchanged and create a separate working copy. This protects the source data and makes it possible to compare the before and after versions. For important work, I also keep a note of the file name, source and date received.</p>
+<h2 id="inspect">2. Inspect the structure</h2>
+<p>Before changing values, I check the number of rows and columns, sample records, column names, data types and missing-value counts.</p>
+<pre><code>import pandas as pd
+
+df = pd.read_csv("input.csv")
+
+print("Rows and columns:", df.shape)
+print(df.head())
+print(df.info())
+print(df.isna().sum())</code></pre>
+<p>At this stage I want to understand the dataset: what one row represents, which columns are identifiers, which fields are required and what units are being used.</p>
+<h2 id="headers">3. Standardise column names</h2>
+<p>Column names with extra spaces or inconsistent capitalisation make code harder to maintain. I use a consistent naming convention, while preserving the original meaning of each heading.</p>
+<pre><code>df.columns = (
+    df.columns
+      .str.strip()
+      .str.lower()
+      .str.replace(" ", "_")
+)</code></pre>
+<p>For complicated headers, review the result to make sure two different columns have not accidentally become identical.</p>
+<h2 id="text">4. Clean text carefully</h2>
+<p>Leading and trailing spaces are common in exported files. They can cause categories that look identical to be treated as different values. I trim whitespace in text columns, then inspect unique values in important categorical fields.</p>
+<pre><code>text_columns = df.select_dtypes(include="object").columns
+
+for column in text_columns:
+    df[column] = df[column].str.strip()
+
+print(df["status"].value_counts(dropna=False))</code></pre>
+<p>Do not automatically change all text to uppercase or lowercase if letter case has meaning, such as product codes or passwords. Standardise only fields where the convention is clear.</p>
+<h2 id="missing">5. Investigate missing values</h2>
+<p>I check which columns contain blanks and how many records are affected. Then I decide what to do based on the role of each field. A missing optional comment may be harmless; a missing transaction date may make a record unsuitable for a time-based analysis.</p>
+<pre><code>missing_summary = df.isna().sum().sort_values(ascending=False)
+print(missing_summary[missing_summary > 0])</code></pre>
+<p>Possible treatments include retaining the missing value, filling it with a justified value, or excluding a record from a specific calculation. I avoid filling every blank with zero because zero may represent a real measurement.</p>
+<h2 id="duplicates">6. Check duplicates using the right key</h2>
+<p>First I check exact duplicate rows. Then I consider whether the dataset has a unique identifier. Removing duplicates based only on a person's name or a date can delete legitimate records.</p>
+<pre><code>print("Exact duplicate rows:", df.duplicated().sum())
+
+# Only use this if order_id should uniquely identify each row:
+# df = df.drop_duplicates(subset=["order_id"])</code></pre>
+<p>The correct key depends on the data model. In a transaction file, one customer may correctly appear in many rows.</p>
+<h2 id="types">7. Convert data types and validate formats</h2>
+<p>Dates, numbers and categories should use appropriate types. Conversion errors should be reviewed rather than silently ignored. For a date column whose format is known:</p>
+<pre><code>df["order_date"] = pd.to_datetime(
+    df["order_date"],
+    format="%d/%m/%Y",
+    errors="coerce"
+)
+
+df["amount"] = pd.to_numeric(
+    df["amount"].str.replace(",", "", regex=False),
+    errors="coerce"
+)</code></pre>
+<p><code>errors="coerce"</code> converts unparseable values to missing values. Check those new missing values and investigate the original entries before deciding how to handle them. The date format and amount-cleaning rule above are examples; they should match the actual source file.</p>
+<h2 id="validate">8. Validate and save a separate output</h2>
+<p>After cleaning, I compare row counts, missing values, key totals and date ranges with the original. I check that identifiers remain unique where expected and that the cleaned values are plausible. Unexpected changes deserve investigation.</p>
+<pre><code>print("Final shape:", df.shape)
+print(df.dtypes)
+print(df.isna().sum())
+
+df.to_csv("cleaned_output.csv", index=False)</code></pre>
+<p>I also keep a short cleaning log: the issue found, the rule applied, the number of affected records and any unresolved limitations.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>A reliable cleaning process is deliberate and repeatable. Inspect first, make changes that are supported by the data's meaning, validate the outcome and preserve the original. The goal is not simply a neat spreadsheet; it is a dataset whose limitations and structure you understand.</p></article><section class="related-reading" aria-label="Related articles"><div><span class="page-kicker">KEEP EXPLORING</span><h2>Related reading</h2><p>Continue with another practical guide from the blog.</p></div><div class="related-reading-links"><a href="csv-cleaning-basics.html">CSV cleaning basics <span>↗</span></a><a href="common-csv-data-mistakes.html">Common CSV data mistakes <span>↗</span></a><a href="why-data-cleaning-matters.html">Why data cleaning matters <span>↗</span></a></div></section><div class="post-footer"><a class="button button-quiet" href="../blog.html">← Back to all articles</a></div></main><footer class="site-footer"><div class="container footer-inner"><a class="home-brand" href="../index.html"><span class="brand-mark"><img src="../assets/sb-mark.svg" alt=""></span><span>Stephen <strong>Bwami</strong></span></a><p>© 2026 Stephen Bwami. Code • Analyze • Innovate.</p><a class="back-top" href="#top">Back to top ↑</a><nav class="footer-social-row" aria-label="Social links"><a href="https://github.com/Foxbwami" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://linkedin.com/in/stephen-bwami-722548253" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://x.com/Stevene12890" target="_blank" rel="noopener noreferrer">X ↗</a><a href="https://www.instagram.com/probwami" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="mailto:bwamistevenez001@gmail.com">Email ↗</a></nav></div></footer><script src="../script.js?v=20261115"></script></body></html>
