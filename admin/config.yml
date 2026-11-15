@@ -1,0 +1,38 @@
+backend:
+  name: turbo-github
+  # Replace this after creating the site in Decap Turbo.
+  # The site ID is shown on the site's Overview page.
+  turbo_site_id: YOUR_DECAP_TURBO_SITE_ID
+  branch: main
+
+media_folder: "images/about"
+public_folder: "/images/about"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "about"
+    label: "About page"
+    files:
+      - name: "about_content"
+        label: "Photos, milestones & events"
+        file: "data/about-content.json"
+        format: "json"
+        fields:
+          - label: "Milestones and events"
+            name: "updates"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.title}}"
+            fields:
+              - { label: "Date or period", name: "date", widget: "string", hint: "For example: November 2026 or 15 November 2026" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "What happened", name: "description", widget: "text" }
+              - { label: "Event photo (optional)", name: "photo", widget: "image", required: false }
+          - label: "Photo gallery"
+            name: "gallery"
+            widget: "list"
+            summary: "{{fields.caption}}"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Alternative text", name: "alt", widget: "string" }
+              - { label: "Caption", name: "caption", widget: "string" }
