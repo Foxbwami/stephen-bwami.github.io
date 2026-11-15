@@ -248,3 +248,17 @@
 @media(max-width:560px){.about-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:170px 170px}.about-gallery-grid figure:nth-child(1),.about-gallery-grid figure:nth-child(2),.about-gallery-grid figure:nth-child(3),.about-gallery-grid figure:nth-child(4){grid-column:auto;grid-row:auto;display:block}}
 
 .about-update-photo{width:100%;height:150px;object-fit:cover;border-radius:10px;margin-bottom:16px;border:1px solid var(--line)}
+
+
+/* Homepage project approach strip — replaces the repeated contact prompt */
+.project-approach{display:grid;grid-template-columns:1.25fr repeat(3,minmax(0,1fr));gap:24px;align-items:start;margin-top:30px;padding:26px 0;border-top:1px solid var(--line)}
+.approach-intro{padding-right:12px}
+.approach-intro .eyebrow{margin-bottom:9px}
+.approach-intro h3{max-width:290px;margin:0 0 9px;font-size:1.28rem}
+.approach-intro>p{max-width:340px;margin:0;font-size:.9rem;line-height:1.75}
+.approach-step{display:flex;gap:13px;padding-top:5px}
+.approach-step>span{flex:0 0 auto;color:var(--cyan);font:700 .78rem 'Space Grotesk',sans-serif;letter-spacing:.08em}
+.approach-step h4{margin:0 0 7px;font:600 1rem 'Space Grotesk',sans-serif;letter-spacing:-.02em}
+.approach-step p{margin:0;font-size:.86rem;line-height:1.75}
+@media(max-width:900px){.project-approach{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:22px}.approach-intro{grid-column:1/-1}.approach-intro h3{max-width:none}.approach-intro>p{max-width:620px}}
+@media(max-width:560px){.project-approach{grid-template-columns:1fr;gap:18px}.approach-intro{grid-column:auto}.approach-step{padding-top:0}}
