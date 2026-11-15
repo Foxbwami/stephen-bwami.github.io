@@ -12,3 +12,20 @@ document.querySelectorAll('.menu-toggle').forEach((toggle) => {
   document.addEventListener('keydown', e => { if(e.key === 'Escape') close(); });
   window.addEventListener('resize', () => { if(window.innerWidth > 900) close(); });
 });
+
+
+// Footer email copy action
+const copyEmailButton = document.getElementById('copy-email-btn');
+if (copyEmailButton) {
+  copyEmailButton.addEventListener('click', async () => {
+    const email = copyEmailButton.dataset.email;
+    const originalLabel = copyEmailButton.textContent;
+    try {
+      await navigator.clipboard.writeText(email);
+      copyEmailButton.textContent = 'Email copied ✓';
+    } catch (error) {
+      copyEmailButton.textContent = 'Copy unavailable';
+    }
+    window.setTimeout(() => { copyEmailButton.textContent = originalLabel; }, 2200);
+  });
+}
