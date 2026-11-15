@@ -1,0 +1,25 @@
+{
+  "updates": [],
+  "gallery": [
+    {
+      "image": "images/activity-1.jpg",
+      "alt": "Stephen Bwami — personal photo",
+      "caption": "Outside the workspace"
+    },
+    {
+      "image": "images/activity-2.jpg",
+      "alt": "Stephen Bwami portrait",
+      "caption": "A little about me"
+    },
+    {
+      "image": "images/activity-3.jpg",
+      "alt": "Stephen Bwami — personal photo",
+      "caption": "Moments along the journey"
+    },
+    {
+      "image": "images/activity-4.jpg",
+      "alt": "Stephen's computer workspace",
+      "caption": "Where ideas take shape"
+    }
+  ]
+}
