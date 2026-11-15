@@ -547,3 +547,6 @@ html{scroll-padding-top:88px}
  .case-study{padding:22px!important}
  .article-card{min-height:0!important}
 }
+
+.hero-image-note{position:absolute;right:0;bottom:0;margin:0;padding:9px 13px;background:#252d37;border:1px solid var(--line);border-radius:6px;color:#d5d8dc;font-size:.72rem;letter-spacing:.02em}
+@media(max-width:640px){.hero-image-note{right:0;bottom:0}}
