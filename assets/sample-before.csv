@@ -1,7 +1,7 @@
 order_id,customer,county,order_date,product,quantity,unit_price_kes,total_kes,payment_status
 ORD-1001,  Amina W. ,Nairobi,14/10/2026,Notebook,3,120,360,Paid
 ORD-1002,Brian K.,mombasa,2026-10-14,Pen,10,25,250,paid
-ORD-1003,Carol M.,KISUMU,15-10-2026,USB Drive,2,850,1,700,PAID
+ORD-1003,Carol M.,KISUMU,15-10-2026,USB Drive,2,850,"1,700",PAID
 ORD-1003,Carol M.,KISUMU,15-10-2026,USB Drive,2,850,1,700,PAID
 ORD-1004,David O.,Nairobi,16/10/2026,Notebook,5,120,600,Pending
 ORD-1005,Eunice N.,nakuru,2026-10-16,Folder,4, 75 ,300,Paid
