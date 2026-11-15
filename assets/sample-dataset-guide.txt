@@ -1,0 +1,49 @@
+STEPHEN BWAMI — SAMPLE DATASET GUIDE
+====================================
+
+Dataset: Sample retail orders (synthetic demonstration data)
+Currency: Kenyan shillings (KES)
+Period: 14–20 October 2026
+Files:
+- sample-before.csv: raw example with deliberate quality issues
+- sample-after.csv: cleaned version after documented transformations
+
+WHAT IS INCLUDED
+Each row represents one retail order. The order_id identifies the order.
+The dataset is synthetic and contains no real customer information.
+
+ISSUES DEMONSTRATED IN THE RAW FILE
+1. One repeated order record (ORD-1003).
+2. Leading/trailing spaces in customer names and numeric values.
+3. Inconsistent county and payment-status capitalisation.
+4. Dates represented in multiple formats.
+5. A comma-formatted amount that needs numeric parsing.
+6. Missing unit price and total for ORD-1008.
+
+WHAT CHANGED IN THE CLEANED FILE
+- Removed the confirmed repeated ORD-1003 row.
+- Trimmed unnecessary whitespace.
+- Standardised county and payment-status labels.
+- Converted dates to YYYY-MM-DD.
+- Stored numeric values without thousands separators.
+- Kept the missing values for ORD-1008 blank.
+
+IMPORTANT ASSUMPTIONS
+The repeated ORD-1003 row is treated as an accidental duplicate for this
+demonstration. In a real project, confirm the business key and source records
+before deleting any repeated row.
+
+The missing price and total for ORD-1008 were NOT replaced with zero.
+A blank means unknown or unavailable; zero would mean a confirmed zero value.
+The record is retained so that the missing information remains visible.
+
+SUGGESTED EXERCISE
+1. Download both CSV files.
+2. Compare row counts and inspect the repeated order.
+3. Standardise the date, county and payment-status fields.
+4. Check numeric types and identify missing values.
+5. Explain why the missing values were preserved.
+6. Write a short cleaning log describing each transformation.
+
+You can use Excel, Google Sheets, Python/pandas, R or another CSV tool.
+The sample is for learning and portfolio demonstration, not business reporting.
