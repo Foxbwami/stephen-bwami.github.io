@@ -56,3 +56,20 @@
 .workspace-points span{display:flex;align-items:center;gap:11px;color:#c6d5e6;font-size:.9rem}
 .workspace-points i{width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(104,223,202,.1)}
 @media(max-width:760px){.workspace-layout{grid-template-columns:1fr;gap:28px}.workspace-photo img{height:270px}.workspace-copy h2{font-size:2.25rem}}
+
+
+/* Footer contact layout */
+.home-footer{padding:42px 0 22px;background:#050c16}
+.footer-main{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding-bottom:34px}
+.footer-brand-block .home-brand{margin-bottom:13px}
+.footer-brand-block>p{margin:0 0 8px;font-size:.84rem}
+.footer-brand-block .footer-note{max-width:390px;margin-top:15px;line-height:1.75}
+.footer-label{display:block;margin-bottom:13px;color:var(--cyan);font-size:.68rem;font-weight:800;letter-spacing:.16em}
+.footer-email{display:inline-flex;align-items:center;gap:10px;font:600 clamp(1rem,2vw,1.4rem) 'Space Grotesk',sans-serif;overflow-wrap:anywhere}
+.footer-email span{color:var(--cyan)}
+.footer-socials{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:20px}
+.footer-socials a{color:#aebed0;font-size:.85rem;font-weight:600;transition:color .2s}
+.footer-socials a:hover{color:var(--cyan)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:20px;border-top:1px solid var(--line)}
+.footer-bottom p{margin:0;font-size:.82rem}
+@media(max-width:640px){.home-footer{padding-top:32px}.footer-main{grid-template-columns:1fr;gap:28px;padding-bottom:26px}.footer-bottom{align-items:flex-start;flex-direction:column;gap:10px}}
